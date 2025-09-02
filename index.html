@@ -1,69 +1,38 @@
-﻿<!DOCTYPE html>
-<html lang="sr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doktor AI</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
-    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
-    .output { margin-top: 20px; font-size: 18px; white-space: pre-line; }
-    .suggestions { margin-top: 20px; background: #f0f0f0; padding: 15px; border-radius: 10px; }
-  </style>
+  <title>Chat s Node.js Serverom</title>
 </head>
 <body>
+  <h1>AI Chat preko Node.js</h1>
+  <textarea id="userMessage" placeholder="Upiši poruku..." rows="4" cols="50"></textarea><br>
+  <button id="sendBtn">Pošalji</button>
+  <h2>Odgovor:</h2>
+  <div id="response"></div>
 
-<h1>🩺 Virtuelni Doktor</h1>
-<p>Pritisni "Slušaj" i reci svoje simptome.</p>
-<button id="startBtn">🎤 Slušaj</button>
+  <script>
+    const sendBtn = document.getElementById('sendBtn');
+    const userMessage = document.getElementById('userMessage');
+    const responseDiv = document.getElementById('response');
 
-<div class="output" id="transcript"></div>
-<div class="suggestions" id="advice"></div>
+    sendBtn.addEventListener('click', async () => {
+      const message = userMessage.value;
+      if (!message) return alert("Upiši poruku!");
 
-<script>
-  const startBtn = document.getElementById("startBtn");
-  const transcriptDiv = document.getElementById("transcript");
-  const adviceDiv = document.getElementById("advice");
+      const res = await fetch('http://localhost:3000/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message })
+      });
 
-  let recognition;
-  if ('webkitSpeechRecognition' in window) {
-    recognition = new webkitSpeechRecognition();
-    recognition.lang = 'sr-SP';
-    recognition.continuous = false;
-    recognition.interimResults = false;
-
-    recognition.onresult = function(event) {
-      const text = event.results[0][0].transcript;
-      transcriptDiv.textContent = "Pacijent: " + text;
-      giveAdvice(text);
-    };
-
-    recognition.onerror = function(event) {
-      transcriptDiv.textContent = "Greška: " + event.error;
-    };
-  } else {
-    alert("Tvoj browser ne podržava prepoznavanje govora.");
-  }
-
-  startBtn.onclick = () => {
-    if (recognition) recognition.start();
-  };
-
-  function giveAdvice(symptoms) {
-    let advice = "Nisam siguran, konsultujte lekara.";
-    const s = symptoms.toLowerCase();
-
-    if (s.includes("kašalj") || s.includes("grlo")) {
-      advice = "Pijte tople napitke, odmarajte i po potrebi se javite lekaru.";
-    } else if (s.includes("glavobolja")) {
-      advice = "Pijte dovoljno vode i odmorite. Ako traje duže od 2 dana, javite se lekaru.";
-    } else if (s.includes("temperatura")) {
-      advice = "Izmerite temperaturu, pijte tečnost, i ako prelazi 38°C duže od 24h – idite kod lekara.";
-    }
-
-    adviceDiv.textContent = "💡 Predlog: " + advice;
-  }
-</script>
-
+      const data = await res.json();
+      if (data.answer) {
+        responseDiv.innerText = data.answer;
+      } else {
+        responseDiv.innerText = 'Greška: ' + data.error;
+      }
+    });
+  </script>
 </body>
 </html>
