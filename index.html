@@ -23,15 +23,19 @@
     const responseDiv = document.getElementById('response');
 
     startBtn.addEventListener('click', async () => {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      mediaRecorder = new MediaRecorder(stream);
-      audioChunks = [];
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+        audioChunks = [];
 
-      mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-      mediaRecorder.start();
+        mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+        mediaRecorder.start();
 
-      startBtn.disabled = true;
-      stopBtn.disabled = false;
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+      } catch (err) {
+        alert('Dozvolite mikrofon: ' + err.message);
+      }
     });
 
     stopBtn.addEventListener('click', () => {
@@ -40,9 +44,9 @@
       stopBtn.disabled = true;
 
       mediaRecorder.onstop = async () => {
-        const blob = new Blob(audioChunks, { type: 'audio/wav' });
+        const blob = new Blob(audioChunks, { type: 'audio/webm' });
         const formData = new FormData();
-        formData.append('audio', blob, 'speech.wav');
+        formData.append('audio', blob, 'speech.webm');
 
         const res = await fetch('http://localhost:3000/api/audio', {
           method: 'POST',
@@ -50,8 +54,8 @@
         });
 
         const data = await res.json();
-        transcriptionDiv.innerText = data.transcription;
-        responseDiv.innerText = data.answer;
+        transcriptionDiv.innerText = data.transcription || 'Greška u transkripciji';
+        responseDiv.innerText = data.answer || 'Greška u odgovoru';
       };
     });
   </script>
