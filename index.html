@@ -2,36 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chat s Node.js Serverom</title>
+  <title>AI Govorni Chat</title>
 </head>
 <body>
-  <h1>AI Chat preko Node.js</h1>
-  <textarea id="userMessage" placeholder="Upiši poruku..." rows="4" cols="50"></textarea><br>
-  <button id="sendBtn">Pošalji</button>
-  <h2>Odgovor:</h2>
+  <h1>AI Govorni Chat</h1>
+  <button id="startBtn">Počni snimanje</button>
+  <button id="stopBtn" disabled>Zaustavi snimanje</button>
+  <h3>Prepoznat tekst:</h3>
+  <div id="transcription"></div>
+  <h3>AI Odgovor:</h3>
   <div id="response"></div>
 
   <script>
-    const sendBtn = document.getElementById('sendBtn');
-    const userMessage = document.getElementById('userMessage');
+    let mediaRecorder;
+    let audioChunks = [];
+
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const transcriptionDiv = document.getElementById('transcription');
     const responseDiv = document.getElementById('response');
 
-    sendBtn.addEventListener('click', async () => {
-      const message = userMessage.value;
-      if (!message) return alert("Upiši poruku!");
+    startBtn.addEventListener('click', async () => {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder = new MediaRecorder(stream);
+      audioChunks = [];
 
-      const res = await fetch('http://localhost:3000/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message })
-      });
+      mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+      mediaRecorder.start();
 
-      const data = await res.json();
-      if (data.answer) {
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+    });
+
+    stopBtn.addEventListener('click', () => {
+      mediaRecorder.stop();
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+
+      mediaRecorder.onstop = async () => {
+        const blob = new Blob(audioChunks, { type: 'audio/wav' });
+        const formData = new FormData();
+        formData.append('audio', blob, 'speech.wav');
+
+        const res = await fetch('http://localhost:3000/api/audio', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await res.json();
+        transcriptionDiv.innerText = data.transcription;
         responseDiv.innerText = data.answer;
-      } else {
-        responseDiv.innerText = 'Greška: ' + data.error;
-      }
+      };
     });
   </script>
 </body>
