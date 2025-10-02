@@ -1,0 +1,14 @@
+<div class="card">
+  <h2>Kontakt</h2>
+  <div class="contact">
+    <div><strong>Vlasnik:</strong> Vedran Burgić</div>
+    <div>
+      <strong>Email:</strong>
+      <a href="mailto:halilovicnusret8@gmail.com">halilovicnusret8@gmail.com</a>
+    </div>
+    <div>
+      <strong>Mobitel:</strong>
+      <a href="tel:+38761635340">+387 61 635 340</a>
+    </div>
+  </div>
+</div>
