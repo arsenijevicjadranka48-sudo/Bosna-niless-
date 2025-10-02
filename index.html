@@ -3,109 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vedran Burgić — Moja stranica</title>
+  <title>Moja Stranica</title>
   <style>
-    :root{--accent:#1261a0;--bg:#f6f8fb;--card:#ffffff}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-         margin:0;background:var(--bg);color:#222}
-    .container{max-width:1000px;margin:36px auto;padding:20px}
-    header{text-align:center;margin-bottom:30px}
-    h1{margin:0;font-size:32px;color:var(--accent)}
-    p.lead{color:#444;font-size:18px}
-    .card{background:var(--card);padding:20px;border-radius:12px;
-          box-shadow:0 6px 18px rgba(18,97,160,0.08);margin-top:20px}
-    .card h2{margin-top:0;color:var(--accent)}
-    .contact a{color:var(--accent);text-decoration:none}
-    ul{margin:10px 0 0 20px}
-    footer{margin-top:30px;text-align:center;color:#666;font-size:14px}
-    .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:16px}
-    .testimonial{background:#f1f6fb;padding:16px;border-radius:10px;font-size:15px}
-    .testimonial strong{display:block;margin-top:8px;color:#333}
+    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f6f8fb; color:#333;}
+    header {background:#1261a0; color:#fff; padding:20px; text-align:center;}
+    nav ul {list-style:none; margin:0; padding:0; display:flex; justify-content:center; gap:20px;}
+    nav a {color:#fff; text-decoration:none; font-weight:bold;}
+    main {padding:60px 20px; text-align:center;}
+    footer {background:#1261a0; color:#fff; text-align:center; padding:15px; margin-top:40px;}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Vedran Burgić — Moja stranica</h1>
-      <p class="lead">Dobrodošli na službenu stranicu</p>
-    </header>
 
-    <!-- Sekcija O nama -->
-    <div class="card" id="o-nama">
-      <h2>O nama</h2>
-      <p>
-        Mi smo mala galerija i kolekcija fotografija posvećena očuvanju
-        prirodnih i kulturnih ljepota Bosne. Vlasnik projekta je
-        <strong>Vedran Burgić</strong>.
-      </p>
-      <p>
-        Cilj nam je prikazati autentične prizore i priče kroz fotografiju,
-        te ih učiniti dostupnima svim posjetiteljima stranice.
-      </p>
-      <p>
-        Kontakt za administraciju i suradnje:
-        <a href="mailto:halilovicnusret8@gmail.com">halilovicnusret8@gmail.com</a>
-      </p>
-    </div>
-
-    <!-- Sekcija Usluge -->
-    <div class="card" id="usluge">
-      <h2>Usluge</h2>
-      <p>Nudimo sljedeće usluge vezane za fotografiju i digitalni sadržaj:</p>
+  <header>
+    <h1>Dobrodošli na našu stranicu</h1>
+    <nav>
       <ul>
-        <li>Fotografske sesije na terenu (pejzaži, urbane scene, kulturne znamenitosti)</li>
-        <li>Digitalna obrada i retuširanje fotografija</li>
-        <li>Izdavanje i licenciranje visokorezolucijskih slika</li>
-        <li>Suradnja na izložbama i promotivnim materijalima</li>
+        <li><a href="onama.html">O nama</a></li>
+        <li><a href="usluge.html">Usluge</a></li>
+        <li><a href="testimonijali.html">Testimonijali</a></li>
+        <li><a href="galerija.html">Galerija</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
-      <p>
-        Za detaljnije informacije ili ponudu pišite na 
-        <a href="mailto:halilovicnusret8@gmail.com">halilovicnusret8@gmail.com</a> 
-        ili nazovite 
-        <a href="tel:+38761635340">+387 61 635 340</a>.
-      </p>
-    </div>
+    </nav>
+  </header>
 
-    <!-- Sekcija Testimonijali -->
-    <div class="card" id="testimonijali">
-      <h2>Testimonijali</h2>
-      <p>Šta naši klijenti kažu o nama:</p>
-      <div class="testimonials">
-        <div class="testimonial">
-          „Predivne fotografije i odlična usluga! Svaka preporuka.”
-          <strong>– Amira K.</strong>
-        </div>
-        <div class="testimonial">
-          „Rad sa Vedranom je bio pravo zadovoljstvo. Fotografije su ispale vrhunski.”
-          <strong>– Marko B.</strong>
-        </div>
-        <div class="testimonial">
-          „Profesionalno, kvalitetno i brzo. Sigurno ćemo opet sarađivati.”
-          <strong>– Jelena P.</strong>
-        </div>
-      </div>
-    </div>
+  <main>
+    <h2>Dobrodošli!</h2>
+    <p>Ovdje možete saznati više o nama, pogledati naše usluge, iskustva klijenata, galeriju i kontaktirati nas.</p>
+  </main>
 
-    <!-- Sekcija Kontakt -->
-    <div class="card" id="kontakt">
-      <h2>Kontakt</h2>
-      <div class="contact">
-        <div><strong>Vlasnik:</strong> Vedran Burgić</div>
-        <div>
-          <strong>Email:</strong>
-          <a href="mailto:halilovicnusret8@gmail.com">halilovicnusret8@gmail.com</a>
-        </div>
-        <div>
-          <strong>Mobitel:</strong>
-          <a href="tel:+38761635340">+387 61 635 340</a>
-        </div>
-      </div>
-    </div>
+  <footer>
+    <p>&copy; 2025 Sva prava zadržana.</p>
+  </footer>
 
-    <footer>
-      &copy; 2025 Vedran Burgić — Sva prava pridržana
-    </footer>
-  </div>
 </body>
 </html>
