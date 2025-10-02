@@ -1,63 +1,253 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="bs">
 <head>
-  <meta charset="UTF-8">
-  <title>AI Govorni Chat</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bosna Niless — Remont reduktora i elektromotora</title>
+  <meta name="description" content="Remont reduktora, remont elektromotora, balansiranje, dijagnostika." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--accent:#0f6bd6;--bg:#f7f9fc;--card:#ffffff;--muted:#6b7280}
+    *{box-sizing:border-box}body{font-family:Inter, system-ui, Arial, sans-serif;margin:0;background:var(--bg);color:#0f1724}
+    header{background:linear-gradient(90deg,#062e55 0%, #0f4f8a 100%);color:white;padding:22px 18px}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--bg),#dbeafe);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700}
+    nav{margin-left:auto}
+    nav a{color:rgba(255,255,255,.95);text-decoration:none;margin-left:18px;font-weight:600}
+    .hero{display:flex;gap:28px;align-items:center;padding:36px 0}
+    .hero-left{flex:1}
+    h1{font-size:28px;margin:0 0 10px}
+    p.lead{margin:0 0 18px;color:#e6eefc}
+    .btn{display:inline-block;padding:10px 16px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+    .btn-outline{background:transparent;border:2px solid rgba(255,255,255,.18);color:white}
+    .hero-right{width:360px;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 24px rgba(12,18,28,.08)}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .card{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(12,18,28,.04)}
+    footer{padding:18px 0;margin-top:30px;color:var(--muted)}
+    /* Modal styles */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:1200}
+    .modal{background:var(--card);width:100%;max-width:680px;border-radius:12px;padding:20px;box-shadow:0 20px 60px rgba(2,6,23,.45)}
+    .modal h3{margin-top:0}
+    .modal .close{float:right;border:0;background:transparent;font-size:18px;cursor:pointer}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input[type=text],input[type=email],textarea,select{width:100%;padding:10px;border:1px solid #e6edf6;border-radius:8px}
+    .small{font-size:13px;color:var(--muted)}
+    /* Floating contact button */
+    .fab{position:fixed;right:18px;bottom:18px;background:var(--accent);color:white;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 10px 30px rgba(12,18,28,.2);z-index:1000;cursor:pointer}
+    /* responsive */
+    @media (max-width:900px){.hero{flex-direction:column}.services{grid-template-columns:repeat(1,1fr)}.hero-right{width:100%}}
+  </style>
 </head>
 <body>
-  <h1>AI Govorni Chat</h1>
-  <button id="startBtn">Počni snimanje</button>
-  <button id="stopBtn" disabled>Zaustavi snimanje</button>
-  <h3>Prepoznat tekst:</h3>
-  <div id="transcription"></div>
-  <h3>AI Odgovor:</h3>
-  <div id="response"></div>
+  <header>
+    <div class="container" style="display:flex;align-items:center">
+      <div class="brand">
+        <div class="brand-logo">BN</div>
+        <div>
+          <div style="font-weight:700">Bosna Niless</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.85)">Remont reduktora i elektromotora</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#usluge">Usluge</a>
+        <a href="#galerija">Galerija</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Profesionalni remonti reduktora i elektromotora — brzo i pouzdano</h1>
+        <p class="lead">Dijagnostika, balansiranje, revitalizacija i montaža. Radimo za industriju, hale i servisne center.</p>
+        <a class="btn" id="openQuote">Zatraži ponudu</a>
+        <a class="btn btn-outline" id="openGallery" style="margin-left:12px">Pogledaj galeriju</a>
+
+        <div class="services" style="margin-top:22px">
+          <div class="card">
+            <h4>Remont reduktora</h4>
+            <p class="small">Popravka, zamjena zupčanika i detaljno testiranje.</p>
+          </div>
+          <div class="card">
+            <h4>Remont elektromotora</h4>
+            <p class="small">Rekonstrukcija armature, ležajeva i izolacije.</p>
+          </div>
+          <div class="card">
+            <h4>Balansiranje & test</h4>
+            <p class="small">Precizno balansiranje i vibraciona dijagnostika.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <h3>Kontakt odmah</h3>
+        <p class="small">Nazovite ili pošaljite poruku — odgovorimo brzo.</p>
+        <div style="margin-top:12px">
+          <div class="small"><strong>Telefon:</strong> +387 61 123 456</div>
+          <div class="small" style="margin-top:6px"><strong>Email:</strong> info@bosnaniless.example</div>
+          <a class="btn" id="openContact" style="margin-top:12px;display:inline-block">Pošalji poruku</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="galerija" style="margin-top:18px">
+      <h3>Primjeri radova</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px">
+        <img src="https://via.placeholder.com/320x200?text=Rad+1" alt="rad1" style="width:100%;border-radius:8px">
+        <img src="https://via.placeholder.com/320x200?text=Rad+2" alt="rad2" style="width:100%;border-radius:8px">
+        <img src="https://via.placeholder.com/320x200?text=Rad+3" alt="rad3" style="width:100%;border-radius:8px">
+      </div>
+    </section>
+
+    <section id="usluge" style="margin-top:20px">
+      <h3>Zašto mi?</h3>
+      <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap">
+        <div class="card" style="flex:1;min-width:220px">
+          <h4>Garancija kvaliteta</h4>
+          <p class="small">Svi radovi dolaze sa garancijom i izvještajem o testiranju.</p>
+        </div>
+        <div class="card" style="flex:1;min-width:220px">
+          <h4>Brza isporuka</h4>
+          <p class="small">Veći projekti — rokovi dogovoreni unaprijed.</p>
+        </div>
+        <div class="card" style="flex:1;min-width:220px">
+          <h4>Profesionalni tim</h4>
+          <p class="small">Iskusni mehaničari i elektro-tehničari.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:28px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div class="small">© Bosna Niless — Sva prava zadržana</div>
+        <div class="small">Adresa: Industrijska zona, Lukavac</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Floating contact button -->
+  <div class="fab" id="fab">✉</div>
+
+  <!-- Modal: Quote -->
+  <div class="modal-backdrop" id="modalQuote">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="close" data-close>&times;</button>
+      <h3>Zatraži brzu ponudu</h3>
+      <p class="small">Popuni osnovne informacije i dobit ćeš odgovor u najkraćem roku.</p>
+      <form id="quoteForm">
+        <div class="grid-2">
+          <label>
+            Ime
+            <input type="text" name="name" required placeholder="Ime i prezime">
+          </label>
+          <label>
+            Telefon
+            <input type="text" name="phone" required placeholder="+387 61 ...">
+          </label>
+        </div>
+        <label style="margin-top:10px">
+          Usluga / opis
+          <textarea name="desc" rows="4" placeholder="Kratak opis problema ili opreme"></textarea>
+        </label>
+        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+          <button class="btn" type="submit">Pošalji</button>
+          <button class="btn btn-outline" type="button" data-close>Otkaži</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Gallery quick view -->
+  <div class="modal-backdrop" id="modalGallery">
+    <div class="modal">
+      <button class="close" data-close>&times;</button>
+      <h3>Galerija radova</h3>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px">
+        <img src="https://via.placeholder.com/420x260?text=Rad+A" style="width:100%;border-radius:8px">
+        <img src="https://via.placeholder.com/420x260?text=Rad+B" style="width:100%;border-radius:8px">
+        <img src="https://via.placeholder.com/420x260?text=Rad+C" style="width:100%;border-radius:8px">
+        <img src="https://via.placeholder.com/420x260?text=Rad+D" style="width:100%;border-radius:8px">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Contact form (from hero) -->
+  <div class="modal-backdrop" id="modalContact">
+    <div class="modal">
+      <button class="close" data-close>&times;</button>
+      <h3>Pošalji poruku</h3>
+      <form id="contactForm">
+        <label>Ime
+          <input type="text" name="name" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" required>
+        </label>
+        <label>Poruka
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <div style="margin-top:10px;display:flex;gap:8px">
+          <button class="btn" type="submit">Pošalji</button>
+          <button class="btn btn-outline" type="button" data-close>Otkaži</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Welcome popup (auto open once) -->
+  <div class="modal-backdrop" id="modalWelcome">
+    <div class="modal">
+      <button class="close" data-close>&times;</button>
+      <h3>Dobrodošli u Bosna Niless</h3>
+      <p class="small">Trebate li brzu procjenu troškova? Kliknite na "Zatraži ponudu" ili pošaljite poruku.</p>
+      <div style="margin-top:10px">
+        <button class="btn" id="welcomeQuote">Zatraži ponudu</button>
+        <button class="btn btn-outline" data-close style="margin-left:8px">Ne hvala</button>
+      </div>
+    </div>
+  </div>
 
   <script>
-    let mediaRecorder;
-    let audioChunks = [];
+    // utility to open/close modals
+    function openModal(id){document.getElementById(id).style.display='flex';document.body.style.overflow='hidden'}
+    function closeModal(id){document.getElementById(id).style.display='none';document.body.style.overflow='auto'}
+    document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>{
+      btn.closest('.modal-backdrop').style.display='none';document.body.style.overflow='auto';
+    }))
 
-    const startBtn = document.getElementById('startBtn');
-    const stopBtn = document.getElementById('stopBtn');
-    const transcriptionDiv = document.getElementById('transcription');
-    const responseDiv = document.getElementById('response');
+    // wire buttons
+    document.getElementById('openQuote').addEventListener('click',()=>openModal('modalQuote'))
+    document.getElementById('openGallery').addEventListener('click',()=>openModal('modalGallery'))
+    document.getElementById('openContact').addEventListener('click',()=>openModal('modalContact'))
+    document.getElementById('fab').addEventListener('click',()=>openModal('modalContact'))
+    document.getElementById('welcomeQuote').addEventListener('click',()=>{ closeModal('modalWelcome'); openModal('modalQuote') })
 
-    startBtn.addEventListener('click', async () => {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
-        audioChunks = [];
+    // auto-open welcome modal once per session (uses sessionStorage)
+    if(!sessionStorage.getItem('welcomed')){
+      setTimeout(()=>openModal('modalWelcome'),900); // small delay
+      sessionStorage.setItem('welcomed','1')
+    }
 
-        mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-        mediaRecorder.start();
+    // forms (simple local handling) -> you can replace with AJAX to your backend
+    document.getElementById('quoteForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      const form = new FormData(this);
+      alert('Hvala '+(form.get('name')||'')+"! Vaš zahtjev je primljen. Kontaktirat ćemo vas uskoro.");
+      closeModal('modalQuote'); this.reset();
+    })
+    document.getElementById('contactForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      const form = new FormData(this);
+      alert('Hvala! Poruka je poslana.');
+      closeModal('modalContact'); this.reset();
+    })
 
-        startBtn.disabled = true;
-        stopBtn.disabled = false;
-      } catch (err) {
-        alert('Dozvolite mikrofon: ' + err.message);
-      }
-    });
-
-    stopBtn.addEventListener('click', () => {
-      mediaRecorder.stop();
-      startBtn.disabled = false;
-      stopBtn.disabled = true;
-
-      mediaRecorder.onstop = async () => {
-        const blob = new Blob(audioChunks, { type: 'audio/webm' });
-        const formData = new FormData();
-        formData.append('audio', blob, 'speech.webm');
-
-        const res = await fetch('http://localhost:3000/api/audio', {
-          method: 'POST',
-          body: formData
-        });
-
-        const data = await res.json();
-        transcriptionDiv.innerText = data.transcription || 'Greška u transkripciji';
-        responseDiv.innerText = data.answer || 'Greška u odgovoru';
-      };
-    });
+    // close modal when clicking backdrop
+    document.querySelectorAll('.modal-backdrop').forEach(back=>{
+      back.addEventListener('click',function(e){ if(e.target===this){ this.style.display='none'; document.body.style.overflow='auto' } })
+    })
   </script>
 </body>
 </html>
