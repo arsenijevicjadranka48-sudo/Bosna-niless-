@@ -1,68 +1,16 @@
-
-<!doctype html>
-<html lang="hr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vedran Burgić — Bosna galerija</title>
-  <style>
-    :root{--accent:#1261a0;--bg:#f6f8fb;--card:#ffffff}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:var(--bg);color:#222}
-    .container{max-width:1000px;margin:36px auto;padding:20px}
-    header{display:flex;align-items:center;gap:20px}
-    .logo{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2fa4ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px}
-    h1{margin:0;font-size:28px}
-    p.lead{margin:6px 0 0;color:#444}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(18,97,160,0.08);margin-top:18px}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:12px}
-    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:10px}
-    .contact{display:flex;flex-direction:column;gap:8px}
-    .contact a{color:var(--accent);text-decoration:none}
-    footer{margin-top:18px;color:#666;font-size:14px}
-    @media (max-width:520px){.logo{width:64px;height:64px}}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <div class="logo">VB</div>
-      <div>
-        <h1>Vedran Burgić — Bosna galerija</h1>
-        <p class="lead">Dobrodošli — kratka galerija i kontakt informacije</p>
-      </div>
-    </header>
-
-    <div class="card">
-      <h2>Galerija</h2>
-      <p>Slike u ovoj galeriji trebaju se zvati <strong>bosna1</strong>, <strong>bosna2</strong> i tako dalje. Umetnite fajlove u mapu <code>images/</code> i sačuvajte ih kao <code>bosna1.jpg</code>, <code>bosna2.jpg</code>, ...</p>
-      <div class="gallery">
-        <img src="images/bosna1.jpg" alt="Bosna 1" />
-        <img src="images/bosna2.jpg" alt="Bosna 2" />
-        <img src="images/bosna3.jpg" alt="Bosna 3" />
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Kontakt</h2>
-      <div class="contact">
-        <div><strong>Vlasnik:</strong> Vedran Burgić</div>
-        <div><strong>Email:</strong> <a href="mailto:halilovicnusret8@gmail.com">halilovicnusret8@gmail.com</a></div>
-        <div><strong>Mobitel:</strong> <a href="tel:+38761635340">+387 61 635 340</a> (uneseno: 0038761635340)</div>
-        <div><strong>Originalni primjer:</strong> <a href="https://67fb7b4f35f7d.site123.me/" target="_blank" rel="noopener">https://67fb7b4f35f7d.site123.me/</a></div>
-      </div>
-    </div>
-
-        <div class="card">
-      <h2>O nama</h2>
-      <p>Mi smo mala galerija i kolekcija fotografija pos
-      <div>Upute za postavljanje:</div>
-      <ol>
-        <li>Kopirajte ovaj HTML u fajl <code>index.html</code>.</li>
-        <li>Kreirajte mapu <code>images/</code> i ubacite svoje slike nazvane <code>bosna1.jpg</code>, <code>bosna2.jpg</code>, ...</li>
-        <li>Uploadajte fajl na hosting po izboru (GitHub Pages, Netlify, Vercel ili vaš hosting).</li>
-      </ol>
-    </footer>
-  </div>
-</body>
-</html>
+<div class="card">
+  <h2>O nama</h2>
+  <p>
+    Mi smo mala galerija i kolekcija fotografija posvećena očuvanju
+    prirodnih i kulturnih ljepota Bosne. Vlasnik projekta je
+    <strong>Vedran Burgić</strong>.
+  </p>
+  <p>
+    Cilj nam je prikazati autentične prizore i priče kroz fotografiju,
+    te ih učiniti dostupnima svim posjetiteljima stranice.
+  </p>
+  <p>
+    Kontakt za administraciju i suradnje:
+    <a href="mailto:halilovicnusret8@gmail.com">halilovicnusret8@gmail.com</a>
+  </p>
+</div>
