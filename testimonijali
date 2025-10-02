@@ -1,0 +1,18 @@
+<div class="card" id="testimonijali">
+  <h2>Testimonijali</h2>
+  <p>Šta naši klijenti kažu o nama:</p>
+  <div class="testimonials">
+    <div class="testimonial">
+      „Predivne fotografije i odlična usluga! Svaka preporuka.”
+      <strong>– Amira K.</strong>
+    </div>
+    <div class="testimonial">
+      „Rad sa Vedranom je bio pravo zadovoljstvo. Fotografije su ispale vrhunski.”
+      <strong>– Marko B.</strong>
+    </div>
+    <div class="testimonial">
+      „Profesionalno, kvalitetno i brzo. Sigurno ćemo opet sarađivati.”
+      <strong>– Jelena P.</strong>
+    </div>
+  </div>
+</div>
