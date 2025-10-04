@@ -1,215 +1,266 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bosna Niless d.o.o – Remont i popravka mjenjača</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bosna Niless d.o.o – Servis i remont industrijskih mjenjača</title>
 
-  <!-- ✅ SEO META TAGOVI -->
-  <meta name="description" content="Bosna Niless d.o.o. – lider u remontu i popravci mjenjača, reduktora i industrijskih pogona. 25 godina iskustva i garancija kvaliteta.">
-  <meta name="keywords" content="Bosna Niless, remont mjenjača, popravka mjenjača, servis reduktora, industrijski mjenjači, Lukavac, BiH, gearbox repair, reducer service">
-  <meta name="author" content="Bosna Niless d.o.o.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://arsenijevicjadranka48-sudo.github.io/Bosna-niless-/">
+  <!-- SEO -->
+  <meta name="description" content="Bosna Niless d.o.o. – 25+ godina iskustva u remontu i popravci industrijskih mjenjača i reduktora. Brza intervencija, detaljna dijagnostika, međunarodni standardi kvaliteta. Lukavac, BiH." />
+  <meta name="keywords" content="remont mjenjača, popravka reduktora, servis mjenjača, Bosna Niless, Lukavac, industrial gearbox repair, gearbox overhaul" />
+  <meta name="author" content="Bosna Niless d.o.o." />
+  <link rel="canonical" href="https://arsenijevicjadranka48-sudo.github.io/Bosna-niless-/" />
 
-  <!-- ✅ OPEN GRAPH -->
-  <meta property="og:title" content="Bosna Niless d.o.o – Remont i popravka mjenjača">
-  <meta property="og:description" content="Stručan remont i popravka mjenjača i reduktora sa više od 25 godina iskustva.">
-  <meta property="og:image" content="https://arsenijevicjadranka48-sudo.github.io/Bosna-niless-/bosna.jpg">
-  <meta property="og:url" content="https://arsenijevicjadranka48-sudo.github.io/Bosna-niless-/">
-  <meta property="og:type" content="website">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bosna Niless d.o.o – Servis i remont industrijskih mjenjača" />
+  <meta property="og:description" content="Preko 25 godina iskustva u remontu i održavanju industrijskih mjenjača i reduktora. Brza intervencija, stručna dijagnostika, pouzdanost za industrijske pogone." />
+  <meta property="og:image" content="https://arsenijevicjadranka48-sudo.github.io/Bosna-niless-/bosna.jpg" />
+  <meta property="og:url" content="https://arsenijevicjadranka48-sudo.github.io/Bosna-niless-/" />
+  <meta property="og:type" content="website" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      background: rgba(0,0,0,0.8);
-      padding: 15px 30px;
-      display: flex; justify-content: space-between; align-items: center;
-      z-index: 1000;
+    :root{
+      --accent:#f4d03f;
+      --dark:#111;
+      --muted:#777;
+      --card:#fff;
     }
-    nav h2 { color: #fff; font-size: 1.3rem; }
-    nav ul { list-style: none; display: flex; align-items: center; }
-    nav ul li { margin: 0 10px; }
-    nav ul li a { text-decoration: none; color: #fff; font-weight: bold; transition: 0.3s; }
-    nav ul li a:hover { color: #f4d03f; }
-
-    .lang-switch img {
-      width: 25px; margin-left: 10px; cursor: pointer; border-radius: 3px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter, Arial, sans-serif;color:#222;line-height:1.6;background:#fafafa}
+    a{color:inherit}
+    nav{
+      position:fixed;left:0;right:0;top:0;height:64px;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 24px;background:rgba(0,0,0,0.75);z-index:50;
+      color:#fff;
     }
-
-    header {
-      background: url("bosna.jpg") no-repeat center center/cover;
-      height: 100vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; text-align: center;
-      color: #fff; position: relative; padding: 0 20px;
+    nav .brand{font-weight:700;letter-spacing:0.6px}
+    nav ul{list-style:none;display:flex;gap:14px;align-items:center}
+    nav a{color:#fff;text-decoration:none;font-weight:600;font-size:0.95rem}
+    .flags img{width:26px;height:18px;cursor:pointer;border-radius:3px;border:1px solid rgba(255,255,255,0.08)}
+    header{
+      min-height:70vh;display:flex;align-items:center;justify-content:center;
+      text-align:center;padding:40px 20px;color:#fff;position:relative;
+      background-size:cover;background-position:center;
     }
-    header::after {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
+    header .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.65));}
+    header .hero{position:relative;z-index:2;max-width:1100px}
+    header h1{font-size:2.6rem;margin-bottom:16px;letter-spacing:1px}
+    header p{font-size:1.05rem;max-width:900px;margin:0 auto}
+    section{padding:72px 20px;max-width:1100px;margin:0 auto}
+    h2{font-size:1.8rem;margin-bottom:18px;color:#111;text-align:center}
+    .grid{display:grid;gap:18px}
+    .two{grid-template-columns:repeat(2,1fr)}
+    .card{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);}
+    .muted{color:var(--muted)}
+    #gallery img{width:100%;border-radius:8px}
+    .blog-post{margin-bottom:18px}
+    footer{background:var(--dark);color:#ddd;padding:18px;text-align:center;font-size:0.95rem}
+    .kontakt{background:#222;color:#fff;padding:40px 20px;border-radius:8px}
+    @media(max-width:900px){
+      .two{grid-template-columns:1fr}
+      nav{padding:0 12px}
+      header h1{font-size:1.9rem}
     }
-    header h1, header p { position: relative; z-index: 2; }
-    header h1 { font-size: 3rem; text-transform: uppercase; margin-bottom: 20px; }
-    header p { font-size: 1.2rem; max-width: 900px; }
-
-    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-    section h2 { text-align: center; margin-bottom: 30px; font-size: 2rem; color: #222; }
-
-    #blogovi, #reference { background: #f9f9f9; }
-
-    .blog-post {
-      margin-bottom: 40px; padding: 20px; background: #fff;
-      border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    .blog-post h3 { color: #222; margin-bottom: 10px; }
-
-    .kontakt { background: #222; color: #fff; text-align: center; padding: 60px 20px; }
-    .kontakt h2 { color: #f4d03f; }
-
-    footer { background: #111; color: #aaa; text-align: center; padding: 15px; font-size: 0.9rem; }
-
-    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <nav>
-    <h2>Bosna Niless</h2>
+    <div class="brand">Bosna Niless</div>
     <ul>
       <li><a href="#home" data-key="nav-home">Početna</a></li>
-      <li><a href="#onama" data-key="nav-about">O nama</a></li>
-      <li><a href="#usluge" data-key="nav-services">Usluge</a></li>
-      <li><a href="#blogovi" data-key="nav-blog">Blog</a></li>
-      <li><a href="#kontakt" data-key="nav-contact">Kontakt</a></li>
-      <li class="lang-switch">
-        <img src="https://flagcdn.com/w20/ba.png" alt="Bosanski" onclick="setLanguage('bs')">
-        <img src="https://flagcdn.com/w20/gb.png" alt="English" onclick="setLanguage('en')">
-        <img src="https://flagcdn.com/w20/de.png" alt="Deutsch" onclick="setLanguage('de')">
+      <li><a href="#about" data-key="nav-about">O nama</a></li>
+      <li><a href="#services" data-key="nav-services">Usluge</a></li>
+      <li><a href="#blog" data-key="nav-blog">Blog</a></li>
+      <li><a href="#contact" data-key="nav-contact">Kontakt</a></li>
+      <li class="flags" style="margin-left:12px">
+        <!-- flags: first local file, then external fallback -->
+        <img src="https://flagcdn.com/w20/ba.png" alt="BS" title="Bosanski" onclick="setLanguage('bs')">
+        <img src="https://flagcdn.com/w20/gb.png" alt="EN" title="English" onclick="setLanguage('en')">
+        <img src="https://flagcdn.com/w20/de.png" alt="DE" title="Deutsch" onclick="setLanguage('de')">
       </li>
     </ul>
   </nav>
 
-  <header id="home">
-    <h1 data-key="hero-title">Bosna Niless</h1>
-    <p data-key="hero-text">Preko 25 godina iskustva u remontu i popravci industrijskih mjenjača i reduktora. Naša preciznost i pouzdanost garantuju dugotrajan rad vaših sistema.</p>
+  <!-- HERO -->
+  <header id="home" role="banner" aria-label="Hero" style="background-image:
+    url('bosna.jpg'), url('https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1600&q=70')">
+    <div class="overlay"></div>
+    <div class="hero">
+      <h1 data-key="hero-title">Bosna Niless</h1>
+      <p data-key="hero-text">
+        Preko 25 godina iskustva u remontu i popravci industrijskih mjenjača i reduktora. Nudimo stručnu dijagnostiku, kvalitetnu reparaciju i brzu isporuku dijelova – sve po međunarodnim standardima.
+      </p>
+    </div>
   </header>
 
-  <section id="onama">
+  <!-- ABOUT -->
+  <section id="about">
     <h2 data-key="about-title">O nama</h2>
-    <p data-key="about-text">
-      Bosna Niless d.o.o. je vodeća kompanija u oblasti remonta i servisa mjenjača i reduktora. Naša stručnost i posvećenost svakom projektu osiguravaju maksimalnu učinkovitost i dug vijek trajanja industrijskih pogona.
-    </p>
-    <img src="bosna.jpg" alt="Bosna Niless" style="width:100%; margin-top:20px; border-radius:8px;">
+    <div class="grid two">
+      <div class="card">
+        <p data-key="about-text">
+          Bosna Niless d.o.o. (Lukavac, Bosna i Hercegovina) posluje više od 25 godina, specijalizirana za remont, obnovu i servis industrijskih mjenjača i reduktora. Naš tim inženjera i tehničara koristi modernu opremu za preciznu dijagnostiku, mjerenje i balansiranje, te primjenjuje najbolje prakse za produženje radnog vijeka strojeva. Radimo po ugovorima sa lokalnim i međunarodnim partnerima, te pružamo garanciju na izvedene zahvate.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="muted">Naša prednost</h3>
+        <ul class="muted">
+          <li>Stručni tim s dugogodišnjim iskustvom</li>
+          <li>Kompletna dijagnostika i testiranje u radu</li>
+          <li>Brza dostupnost dijelova i opcija hitnog servisa</li>
+          <li>Dokumentacija i certifikati za ključne radove</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section id="usluge">
+  <!-- SERVICES -->
+  <section id="services">
     <h2 data-key="services-title">Usluge</h2>
-    <p data-key="services-text">
-      Dijagnostika, popravka, remont i testiranje svih tipova industrijskih mjenjača i reduktora. Pružamo i uslugu brze intervencije, tehničko savjetovanje i transport opreme.
-    </p>
+    <div class="grid">
+      <div class="card">
+        <h3 class="muted" data-key="services-1-title">Dijagnostika i savjetovanje</h3>
+        <p data-key="services-1-text">
+          Detaljna analiza uzrokâ kvara: vibracije, neobični zvukovi, curenja ulja i promjena prijenosa snage. Predlažemo optimalno rješenje – popravka, remont ili zamjena komponenti.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 class="muted" data-key="services-2-title">Remont i popravka</h3>
+        <p data-key="services-2-text">
+          Kompleksni remonti uključuju zamjenu ležajeva, zupčanika, osovina i kućišta. Izvode se precizne mjere tolerancije te termička obrada i završna montaža uz test u radu.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 class="muted" data-key="services-3-title">Balansiranje i testiranje</h3>
+        <p data-key="services-3-text">
+          Dinamičko balansiranje rotirajućih sklopova, testiranje opterećenja i verifikacija performansi prije povratka u radnu jedinicu.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 class="muted" data-key="services-4-title">Transport i logistika</h3>
+        <p data-key="services-4-text">
+          Organiziramo pouzdan transport oštećenih i popravljenih komponenti, kao i pomoć pri ugradnji i puštanju u pogon.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <section id="blogovi">
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2 data-key="gallery-title">Galerija</h2>
+    <div id="gallery" class="grid two">
+      <div class="card"><img src="galerija1.jpg" alt="Radionica - Bosna Niless"></div>
+      <div class="card"><img src="galerija2.jpg" alt="Popravka zupčanika"></div>
+      <div class="card"><img src="galerija3.jpg" alt="Testiranje u radu"></div>
+      <div class="card"><img src="galerija4.jpg" alt="Balansiranje"></div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
     <h2 data-key="blog-title">Blog</h2>
 
-    <div class="blog-post">
+    <article class="card blog-post">
       <h3 data-key="blog1-title">Kako prepoznati kvar na mjenjaču</h3>
-      <p data-key="blog1-text">Neobični zvukovi i promjene u prijenosu snage mogu ukazivati na kvar. Naši stručnjaci pružaju detaljnu dijagnostiku i profesionalnu popravku.</p>
-    </div>
+      <p data-key="blog1-text">
+        Rani znakovi kvara često su neobični zvukovi (škripanje, lupkanje), porast temperatura, nenormalne vibracije i neujednačen prijenos snage. U članku objašnjavamo korake brzog pregleda: vizualna provjera zupčanika i ležajeva, kontrola ulja i ispitivanje osovine. Pravovremenom intervencijom smanjuje se rizik od skupih kvarova i neželjenih zastoja.
+      </p>
+    </article>
 
-    <div class="blog-post">
-      <h3 data-key="blog2-title">Zašto je remont važan</h3>
-      <p data-key="blog2-text">Redovan remont produžava životni vijek opreme, smanjuje zastoje i optimizira performanse vašeg pogona.</p>
-    </div>
+    <article class="card blog-post">
+      <h3 data-key="blog2-title">Zašto redovan remont štedi novac</h3>
+      <p data-key="blog2-text">
+        Preventivno održavanje i redovan remont omogućavaju planiranje zamjene kritičnih komponenti prije potpunog kvara, optimizirajući troškove i produžujući radni vijek opreme. Objašnjavamo kalkulaciju troškova i tipične intervale održavanja za industrijske pogone.
+      </p>
+    </article>
+
   </section>
 
-  <section id="kontakt" class="kontakt">
+  <!-- CONTACT -->
+  <section id="contact">
     <h2 data-key="contact-title">Kontakt</h2>
-    <p>📍 Branilaca Bosne bb, Lukavac, BiH</p>
-    <p>📞 +387 62 635 887</p>
-    <p>✉ bosnaniless@bihnet.ba</p>
-    <p>🕒 Pon–Pet: 08:00–19:00</p>
+    <div class="card kontakt">
+      <p><strong data-key="contact-company">Bosna Niless d.o.o.</strong></p>
+      <p data-key="contact-address">Branilaca Bosne bb, 75300 Lukavac, Bosna i Hercegovina</p>
+      <p data-key="contact-phone">📞 +387 62 635 887</p>
+      <p data-key="contact-email">✉ bosnaniless@bihnet.ba</p>
+      <p class="muted" style="margin-top:8px">Radno vrijeme: Pon–Pet 08:00 – 19:00</p>
+    </div>
   </section>
 
   <footer>
-    Bosna Niless © 2025 — Sva prava zadržana
+    &copy; <span id="year"></span> Bosna Niless d.o.o. — Sva prava zadržana
   </footer>
 
-  <!-- 🌍 MULTIJEZIČNI SISTEM -->
+  <!-- TRANSLATIONS -->
   <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     const translations = {
       bs: {
-        "nav-home": "Početna",
-        "nav-about": "O nama",
-        "nav-services": "Usluge",
-        "nav-blog": "Blog",
-        "nav-contact": "Kontakt",
-        "hero-title": "Bosna Niless",
-        "hero-text": "Preko 25 godina iskustva u remontu i popravci industrijskih mjenjača i reduktora. Naša preciznost i pouzdanost garantuju dugotrajan rad vaših sistema.",
-        "about-title": "O nama",
-        "about-text": "Bosna Niless d.o.o. je vodeća kompanija u oblasti remonta i servisa mjenjača i reduktora. Naša stručnost i posvećenost svakom projektu osiguravaju maksimalnu učinkovitost i dug vijek trajanja industrijskih pogona.",
-        "services-title": "Usluge",
-        "services-text": "Dijagnostika, popravka, remont i testiranje svih tipova industrijskih mjenjača i reduktora. Pružamo i uslugu brze intervencije, tehničko savjetovanje i transport opreme.",
-        "blog-title": "Blog",
-        "blog1-title": "Kako prepoznati kvar na mjenjaču",
-        "blog1-text": "Neobični zvukovi i promjene u prijenosu snage mogu ukazivati na kvar. Naši stručnjaci pružaju detaljnu dijagnostiku i profesionalnu popravku.",
-        "blog2-title": "Zašto je remont važan",
-        "blog2-text": "Redovan remont produžava životni vijek opreme, smanjuje zastoje i optimizira performanse vašeg pogona.",
-        "contact-title": "Kontakt"
+        "nav-home":"Početna","nav-about":"O nama","nav-services":"Usluge","nav-blog":"Blog","nav-contact":"Kontakt",
+        "hero-title":"Bosna Niless","hero-text":"Preko 25 godina iskustva u remontu i popravci industrijskih mjenjača i reduktora. Nudimo stručnu dijagnostiku, kvalitetnu reparaciju i brzu isporuku dijelova – sve po međunarodnim standardima.",
+        "about-title":"O nama","about-text":"Bosna Niless d.o.o. (Lukavac, Bosna i Hercegovina) posluje više od 25 godina, specijalizirana za remont, obnovu i servis industrijskih mjenjača i reduktora. Naš tim inženjera i tehničara koristi modernu opremu za preciznu dijagnostiku, mjerenje i balansiranje, te primjenjuje najbolje prakse za produženje radnog vijeka strojeva. Radimo po ugovorima sa lokalnim i međunarodnim partnerima, te pružamo garanciju na izvedene zahvate.",
+        "services-title":"Usluge","services-1-title":"Dijagnostika i savjetovanje","services-1-text":"Detaljna analiza uzrokâ kvara: vibracije, neobični zvukovi, curenja ulja i promjena prijenosa snage. Predlažemo optimalno rješenje – popravka, remont ili zamjena komponenti.",
+        "services-2-title":"Remont i popravka","services-2-text":"Kompleksni remonti uključuju zamjenu ležajeva, zupčanika, osovina i kućišta. Izvode se precizne mjere tolerancije te termička obrada i završna montaža uz test u radu.",
+        "services-3-title":"Balansiranje i testiranje","services-3-text":"Dinamičko balansiranje rotirajućih sklopova, testiranje opterećenja i verifikacija performansi prije povratka u radnu jedinicu.",
+        "services-4-title":"Transport i logistika","services-4-text":"Organiziramo pouzdan transport oštećenih i popravljenih komponenti, kao i pomoć pri ugradnji i puštanju u pogon.",
+        "gallery-title":"Galerija",
+        "blog-title":"Blog","blog1-title":"Kako prepoznati kvar na mjenjaču","blog1-text":"Rani znakovi kvara često su neobični zvukovi (škripanje, lupkanje), porast temperatura, nenormalne vibracije i neujednačen prijenos snage. U članku objašnjavamo korake brzog pregleda: vizualna provjera zupčanika i ležajeva, kontrola ulja i ispitivanje osovine. Pravovremenom intervencijom smanjuje se rizik od skupih kvarova i neželjenih zastoja.",
+        "blog2-title":"Zašto redovan remont štedi novac","blog2-text":"Preventivno održavanje i redovan remont omogućavaju planiranje zamjene kritičnih komponenti prije potpunog kvara, optimizirajući troškove i produžujući radni vijek opreme. Objašnjavamo kalkulaciju troškova i tipične intervale održavanja za industrijske pogone.",
+        "contact-title":"Kontakt","contact-company":"Bosna Niless d.o.o.","contact-address":"Branilaca Bosne bb, 75300 Lukavac, BiH","contact-phone":"📞 +387 62 635 887","contact-email":"✉ bosnaniless@bihnet.ba"
       },
       en: {
-        "nav-home": "Home",
-        "nav-about": "About Us",
-        "nav-services": "Services",
-        "nav-blog": "Blog",
-        "nav-contact": "Contact",
-        "hero-title": "Bosna Niless",
-        "hero-text": "Over 25 years of experience in gearbox and reducer repair. Our precision and reliability ensure long-term performance of your systems.",
-        "about-title": "About Us",
-        "about-text": "Bosna Niless Ltd. is a leading company in gearbox and reducer repair. Our expertise and dedication guarantee maximum efficiency and extended equipment lifespan.",
-        "services-title": "Services",
-        "services-text": "Diagnostics, repair, overhaul and testing of all types of industrial gearboxes and reducers. We also provide quick intervention, consulting and equipment transport.",
-        "blog-title": "Blog",
-        "blog1-title": "How to Recognize Gearbox Failure",
-        "blog1-text": "Unusual noises and power transmission issues may indicate a fault. Our experts provide detailed diagnostics and professional repair.",
-        "blog2-title": "Why Overhaul Matters",
-        "blog2-text": "Regular maintenance extends equipment life, reduces downtime and optimizes performance.",
-        "contact-title": "Contact"
+        "nav-home":"Home","nav-about":"About Us","nav-services":"Services","nav-blog":"Blog","nav-contact":"Contact",
+        "hero-title":"Bosna Niless","hero-text":"Over 25 years of experience in gearbox and reducer overhaul and repair. We provide professional diagnostics, high-quality repairs and fast delivery of parts — all in line with international quality standards.",
+        "about-title":"About Us","about-text":"Bosna Niless Ltd. (Lukavac, Bosnia and Herzegovina) has been operating for over 25 years, specialising in overhaul, refurbishment and servicing of industrial gearboxes and reducers. Our team of engineers and technicians uses modern equipment for precise diagnostics, measurement and balancing, applying best practices to extend the service life of machinery. We work with local and international partners and provide warranties on completed works.",
+        "services-title":"Services","services-1-title":"Diagnostics & Consulting","services-1-text":"Comprehensive root-cause analysis: vibration, unusual noises, oil leaks and transmission issues. We recommend optimal solutions — repair, overhaul or component replacement.",
+        "services-2-title":"Overhaul & Repair","services-2-text":"Comprehensive overhauls include replacement of bearings, gears, shafts and housings. We perform precision measurements, heat treatment and final assembly with in-service testing.",
+        "services-3-title":"Balancing & Testing","services-3-text":"Dynamic balancing of rotating assemblies, load testing and performance verification prior to return to operation.",
+        "services-4-title":"Transport & Logistics","services-4-text":"We arrange safe transport of damaged and repaired components, and assist with on-site installation and commissioning.",
+        "gallery-title":"Gallery",
+        "blog-title":"Blog","blog1-title":"How to Recognize Gearbox Failure","blog1-text":"Early signs of failure often include unusual noises (grinding, knocking), temperature increases, abnormal vibrations and uneven power transmission. This article explains quick inspection steps: visual checks of gears and bearings, oil condition, and shaft testing. Timely intervention reduces the risk of costly failures and downtime.",
+        "blog2-title":"Why Overhaul Saves Money","blog2-text":"Preventive maintenance and scheduled overhauls allow component replacement before catastrophic failure, optimising costs and extending equipment life. We break down cost calculations and recommended maintenance intervals for industrial plants.",
+        "contact-title":"Contact","contact-company":"Bosna Niless Ltd.","contact-address":"Branilaca Bosne bb, 75300 Lukavac, Bosnia and Herzegovina","contact-phone":"📞 +387 62 635 887","contact-email":"✉ bosnaniless@bihnet.ba"
       },
       de: {
-        "nav-home": "Startseite",
-        "nav-about": "Über uns",
-        "nav-services": "Dienstleistungen",
-        "nav-blog": "Blog",
-        "nav-contact": "Kontakt",
-        "hero-title": "Bosna Niless",
-        "hero-text": "Über 25 Jahre Erfahrung in der Reparatur von Industriegetrieben und Reduzierern. Unsere Präzision und Zuverlässigkeit garantieren eine lange Lebensdauer Ihrer Systeme.",
-        "about-title": "Über uns",
-        "about-text": "Bosna Niless d.o.o. ist ein führendes Unternehmen im Bereich der Getriebe- und Reduziererwartung. Unsere Fachkompetenz und Hingabe sichern maximale Effizienz und Langlebigkeit Ihrer Anlagen.",
-        "services-title": "Dienstleistungen",
-        "services-text": "Diagnose, Reparatur, Überholung und Prüfung aller Arten von Industriegetrieben und Reduzierern. Wir bieten auch schnelle Eingriffe, technische Beratung und Transport an.",
-        "blog-title": "Blog",
-        "blog1-title": "Wie man einen Getriebefehler erkennt",
-        "blog1-text": "Ungewöhnliche Geräusche und Änderungen in der Leistungsübertragung können auf einen Defekt hinweisen. Unsere Experten bieten eine detaillierte Diagnose und professionelle Reparatur.",
-        "blog2-title": "Warum eine Überholung wichtig ist",
-        "blog2-text": "Regelmäßige Wartung verlängert die Lebensdauer der Geräte, reduziert Ausfallzeiten und optimiert die Leistung.",
-        "contact-title": "Kontakt"
+        "nav-home":"Startseite","nav-about":"Über uns","nav-services":"Dienstleistungen","nav-blog":"Blog","nav-contact":"Kontakt",
+        "hero-title":"Bosna Niless","hero-text":"Über 25 Jahre Erfahrung in der Überholung und Reparatur von Getrieben und Reduzierern. Wir bieten professionelle Diagnostik, hochwertige Reparaturen und schnelle Lieferung von Ersatzteilen — gemäß internationalen Qualitätsstandards.",
+        "about-title":"Über uns","about-text":"Bosna Niless d.o.o. (Lukavac, Bosnien und Herzegowina) ist seit über 25 Jahren tätig und spezialisiert auf Überholung, Instandsetzung und Wartung von Industriegetrieben und Reduzierern. Unser Team aus Ingenieuren und Techniker*innen arbeitet mit moderner Messtechnik für präzise Diagnose, Messung und Auswuchtung und setzt Best Practices zur Verlängerung der Lebensdauer von Anlagen um. Wir arbeiten mit lokalen und internationalen Partnern und bieten Garantien für unsere Arbeiten.",
+        "services-title":"Dienstleistungen","services-1-title":"Diagnose & Beratung","services-1-text":"Umfassende Ursachenermittlung: Vibrationen, ungewöhnliche Geräusche, Ölverluste und Übertragungsprobleme. Wir empfehlen die optimale Lösung — Reparatur, Überholung oder Austausch von Bauteilen.",
+        "services-2-title":"Überholung & Reparatur","services-2-text":"Komplexe Überholungen umfassen den Austausch von Lagern, Zahnrädern, Wellen und Gehäusen. Wir führen präzise Maßnahmen, Wärmebehandlung und Endmontage mit anschließender Funktionsprüfung durch.",
+        "services-3-title":"Auswuchtung & Prüfung","services-3-text":"Dynamische Auswuchtung rotierender Baugruppen, Belastungstests und Leistungsüberprüfung vor der Rückführung in den Betrieb.",
+        "services-4-title":"Transport & Logistik","services-4-text":"Wir organisieren den sicheren Transport beschädigter und instandgesetzter Komponenten und unterstützen bei der Montage und Inbetriebnahme vor Ort.",
+        "gallery-title":"Galerie",
+        "blog-title":"Blog","blog1-title":"Wie man einen Getriebefehler erkennt","blog1-text":"Frühe Anzeichen eines Fehlers sind oft ungewöhnliche Geräusche (Schleifen, Klopfen), Temperaturanstieg, abnorme Vibrationen und ungleichmäßige Kraftübertragung. Dieser Beitrag erklärt schnelle Prüfmaßnahmen: Sichtkontrolle von Zahnrädern und Lagern, Ölstatus und Wellentests. Rechtzeitige Maßnahmen reduzieren das Risiko teurer Ausfälle und Stillstände.",
+        "blog2-title":"Warum Überholung Geld spart","blog2-text":"Vorbeugende Wartung und geplante Überholungen ermöglichen den Austausch kritischer Komponenten vor dem Totalausfall, optimieren Kosten und verlängern die Lebensdauer der Anlage. Wir erläutern Kostenrechnung und empfohlene Wartungsintervalle für Industrieanlagen.",
+        "contact-title":"Kontakt","contact-company":"Bosna Niless d.o.o.","contact-address":"Branilaca Bosne bb, 75300 Lukavac, Bosnien und Herzegowina","contact-phone":"📞 +387 62 635 887","contact-email":"✉ bosnaniless@bihnet.ba"
       }
     };
 
-    function setLanguage(lang) {
-      document.querySelectorAll("[data-key]").forEach(el => {
-        const key = el.getAttribute("data-key");
-        if (translations[lang][key]) {
+    // keys to replace: elements that have 'data-key' attribute
+    function setLanguage(lang){
+      // replace nav links and headings
+      document.querySelectorAll('[data-key]').forEach(el=>{
+        const key = el.getAttribute('data-key');
+        if(key && translations[lang] && translations[lang][key]){
           el.textContent = translations[lang][key];
         }
       });
-      localStorage.setItem("lang", lang);
+      // set html lang attribute
+      document.documentElement.lang = (lang === 'bs' ? 'bs' : (lang === 'en' ? 'en' : 'de'));
+      localStorage.setItem('site-lang', lang);
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const lang = localStorage.getItem("lang") || "bs";
+    // restore language on load
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const lang = localStorage.getItem('site-lang') || 'bs';
       setLanguage(lang);
     });
   </script>
