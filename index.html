@@ -6,7 +6,8 @@
 <title>MCA2017 – Mašinska obrada</title>
 <style>
 body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#222; scroll-behavior: smooth; }
-header { background:#333; color:#fff; padding:20px; position: sticky; top:0; z-index:100; text-align:center; }
+header { background:#333; color:#fff; padding:20px; position: sticky; top:0; z-index:100; text-align:center; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:15px; }
+header img { height:60px; border-radius:8px; }
 nav a { color:#fff; margin:0 10px; text-decoration:none; font-weight:bold; }
 nav a:hover { text-decoration:underline; }
 .lang-btn { padding:5px 10px; margin:5px; border:none; border-radius:5px; cursor:pointer; background:#ddd; }
@@ -30,12 +31,14 @@ button:hover { background:#555; }
 <body>
 
 <header>
+<img src="mca.png" alt="MCA Logo">
+<div style="text-align:center;">
 <h1 id="txt-company">MCA2017 — Mašinska obrada</h1>
 <h2 id="hero-title">Precizne usluge mašinske obrade u Čačku</h2>
 
 <!-- Jezici -->
 <div>
-<button id="lang-sr" class="lang-btn active">SR</button>
+<button id="lang-sr" class="lang-btn">SR</button>
 <button id="lang-en" class="lang-btn">EN</button>
 <button id="lang-de" class="lang-btn">DE</button>
 </div>
@@ -47,68 +50,27 @@ button:hover { background:#555; }
 <a href="#reviews" id="nav-reviews">Recenzije</a>
 <a href="#contact" id="nav-contact">Kontakt</a>
 </nav>
+</div>
 </header>
 
-<!-- O NAMA -->
 <section id="about">
 <h2 id="about-title">O nama</h2>
 <p id="about-text">MCA2017 je lider u oblasti precizne mašinske obrade sa višegodišnjim iskustvom. Naša firma se specijalizovala za obradu delova za industriju cementa, ali pružamo usluge i za druge sektore koji zahtevaju maksimalnu preciznost i kvalitet. Naš tim stručnjaka koristi najsavremenije mašine i tehnologije kako bi svaki projekat bio urađen u skladu sa najvišim standardima. Posvećeni smo inovacijama, profesionalnosti i potpunom zadovoljstvu naših klijenata.</p>
 <p>Naša misija je da svaki klijent dobije rešenje koje ne samo da zadovoljava tehničke zahteve, već i doprinosi efikasnosti i sigurnosti proizvodnje. Sa MCA2017, možete biti sigurni da je svaki detalj obrađen sa pažnjom i preciznošću.</p>
 </section>
 
-<!-- GALERIJA -->
 <section id="gallery">
 <h2>Galerija</h2>
 <p>Pogledajte deo naših radova i postignuća u oblasti mašinske obrade. Svaka slika prikazuje visok nivo preciznosti i kvalitetne obrade metalnih delova.</p>
 <div id="gallery-grid"></div>
 </section>
+
 <div id="lightbox">
 <img id="lb-img" alt="Prikaz slike" onclick="this.parentElement.style.display='none'">
 </div>
 
-<!-- RECENZIJE -->
 <section id="reviews">
 <h2 id="reviews-title">Recenzije</h2>
 <div class="reviews">
 <div class="review"><strong>Marko P.</strong><p>Izvrsna usluga i kvalitetna obrada. Toplo preporučujem! Tim MCA2017 je vrlo profesionalan i precizan, a komunikacija je bila odlična tokom celog procesa.</p></div>
-<div class="review"><strong>Jelena S.</strong><p>Profesionalan tim, sve je urađeno precizno i na vreme. Rezultati su prevazišli moja očekivanja i sigurno ću se ponovo obratiti za buduće projekte.</p></div>
-<div class="review"><strong>Ivan K.</strong><p>Odličan kvalitet i posvećenost detaljima. Svaki deo je obrađen sa najvećom pažnjom, a proces je bio transparentan i efikasan.</p></div>
-</div>
-</section>
-
-<!-- KONTAKT -->
-<section id="contact">
-<h2>Kontakt</h2>
-<p>Ako imate pitanja, potreban vam je savet ili želite da naručite naše usluge, slobodno nas kontaktirajte putem forme ispod. Odgovaramo u najkraćem mogućem roku.</p>
-<form id="contactForm">
-<input name="name" placeholder="Vaše ime" required>
-<input name="email" type="email" placeholder="Vaš email" required>
-<textarea name="message" placeholder="Poruka..." required></textarea>
-<button type="submit">Pošalji</button>
-</form>
-</section>
-
-<script>
-// Jezici
-const TEXT = {
-sr: {company:"MCA2017 — Mašinska obrada", hero:"Precizne usluge mašinske obrade u Čačku", about:"O nama", aboutText:"MCA2017 je lider u oblasti precizne mašinske obrade sa višegodišnjim iskustvom...", reviews:"Recenzije", gallery:"Galerija", contact:"Kontakt"},
-en: {company:"MCA2017 — Machining Services", hero:"Precision machining services in Čačak", about:"About Us", aboutText:"MCA2017 is a leader in precision machining with many years of experience...", reviews:"Reviews", gallery:"Gallery", contact:"Contact"},
-de: {company:"MCA2017 — Maschinenbearbeitung", hero:"Präzise Bearbeitungsdienste in Čačak", about:"Über uns", aboutText:"MCA2017 ist führend im Bereich der präzisen Maschinenbearbeitung mit langjähriger Erfahrung...", reviews:"Bewertungen", gallery:"Galerie", contact:"Kontakt"}
-};
-
-function setLang(lang){
-document.getElementById("txt-company").innerText=TEXT[lang].company;
-document.getElementById("hero-title").innerText=TEXT[lang].hero;
-document.getElementById("about-title").innerText=TEXT[lang].about;
-document.getElementById("about-text").innerText=TEXT[lang].aboutText;
-document.getElementById("reviews-title").innerText=TEXT[lang].reviews;
-document.getElementById("nav-about").innerText=TEXT[lang].about;
-document.getElementById("nav-gallery").innerText=TEXT[lang].gallery;
-document.getElementById("nav-reviews").innerText=TEXT[lang].reviews;
-document.getElementById("nav-contact").innerText=TEXT[lang].contact;
-document.querySelectorAll(".lang-btn").forEach(b=>b.classList.remove("active"));
-document.getElementById("lang-"+lang).classList.add("active");
-}
-
-// dugmad
-document.getElementById("lang-sr").onclick=()=>setL
+<div class="review"><strong>Jelena
