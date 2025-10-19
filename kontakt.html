@@ -1,175 +1,139 @@
 <!DOCTYPE html>
-<html lang="bs">
+<html lang="hr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bosna Niless - Remont i popravka mjenjača</title>
-
-  <!-- ✅ SEO META TAGOVI -->
-  <meta name="description" content="Bosna Niless d.o.o. – lider u remontu i popravci mjenjača, reduktora i industrijskih pogona. 25 godina iskustva i garancija kvaliteta.">
-  <meta name="keywords" content="Bosna Niless, remont mjenjača, gearbox repair, gearbox overhaul, reduktori, Lukavac, BiH">
-  <meta name="author" content="Bosna Niless d.o.o.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://bosnaniless.shop/">
-
-  <!-- ✅ OPEN GRAPH -->
-  <meta property="og:title" content="Bosna Niless - Remont i popravka mjenjača">
-  <meta property="og:description" content="Stručan remont i popravka mjenjača i reduktora sa više od 25 godina iskustva.">
-  <meta property="og:image" content="https://bosnaniless.shop/bosna.jpg">
-  <meta property="og:url" content="https://bosnaniless.shop/">
-  <meta property="og:type" content="website">
-
+  <title>Bosna Niless</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      background: rgba(0,0,0,0.7);
-      padding: 15px 30px;
-      display: flex; justify-content: space-between; align-items: center;
-      z-index: 1000;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #333;
     }
-    nav h2 { color: #fff; font-size: 1.2rem; }
-    nav ul { list-style: none; display: flex; align-items: center; }
-    nav ul li { margin: 0 15px; }
-    nav ul li a { text-decoration: none; color: #fff; font-weight: bold; transition: 0.3s; }
-    nav ul li a:hover { color: #f4d03f; }
-    .lang-switch { margin-left: 10px; cursor: pointer; font-weight: bold; }
 
-    header {
-      background: url("bosna.jpg") no-repeat center center/cover;
-      height: 100vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; text-align: center;
-      padding: 0 20px; position: relative;
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
     }
-    header::after {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #004080;
     }
-    header h1, header p { position: relative; z-index: 2; color: #fff; }
-    header h1 { font-size: 3rem; margin-bottom: 20px; text-transform: uppercase; }
-    header p { max-width: 900px; font-size: 1.2rem; }
 
-    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-    section h2 { text-align: center; margin-bottom: 30px; font-size: 2rem; color: #222; }
-
-    #galerija { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-    #galerija img { width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
-
-    #reference { background: #f4f4f4; }
-    .ref-container {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
+    section {
+      padding: 50px 20px;
     }
-    .ref-card {
-      background: #fff; padding: 20px; border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center;
+
+    /* O NAMA */
+    #o-nama {
+      background-color: #f5f5f5;
     }
-    .ref-card img { max-width: 120px; margin-bottom: 15px; }
-    .ref-card p { font-style: italic; font-size: 0.95rem; color: #444; }
 
-    #blogovi { background: #f9f9f9; }
-    .blog-post {
-      margin-bottom: 40px; padding: 20px;
-      background: #fff; border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    #o-nama ul {
+      list-style: none;
+      padding-left: 0;
     }
-    .blog-post h3 { color: #222; margin-bottom: 10px; }
-    .blog-post p { color: #444; }
 
-    .kontakt { background: #222; color: #fff; text-align: center; padding: 60px 20px; }
-    .kontakt h2 { color: #f4d03f; }
+    #o-nama li::before {
+      content: "✔ ";
+      color: green;
+      margin-right: 5px;
+    }
 
-    footer { background: #111; color: #aaa; text-align: center; padding: 15px; font-size: 0.9rem; }
+    /* GALERIJA */
+    #galerija .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
 
-    html { scroll-behavior: smooth; }
+    #galerija .gallery-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* RECENZIJE */
+    #recenzije {
+      background-color: #f5f5f5;
+    }
+
+    .testimonial {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 5px solid #007bff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-top: 10px;
+      color: #007bff;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 26px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <nav>
-    <h2>Bosna Niless</h2>
-    <ul>
-      <li><a href="#home" data-bs="Početna" data-en="Home">Početna</a></li>
-      <li><a href="#onama" data-bs="O nama" data-en="About">O nama</a></li>
-      <li><a href="#usluge" data-bs="Usluge" data-en="Services">Usluge</a></li>
-      <li><a href="#galerija" data-bs="Galerija" data-en="Gallery">Galerija</a></li>
-      <li><a href="#reference" data-bs="Reference" data-en="References">Reference</a></li>
-      <li><a href="#blogovi" data-bs="Blog" data-en="Blog">Blog</a></li>
-      <li><a href="#kontakt" data-bs="Kontakt" data-en="Contact">Kontakt</a></li>
-      <li class="lang-switch" onclick="setLanguage('bs')">🇧🇦</li>
-      <li class="lang-switch" onclick="setLanguage('en')">🇬🇧</li>
-    </ul>
-  </nav>
-
-  <header id="home">
-    <h1 id="hero-title">Bosna Niless</h1>
-    <p id="hero-text">Preko 25 godina iskustva u popravci, remontu i održavanju reduktora i mjenjača. Pružamo sigurnost i pouzdanost vašim poslovnim procesima.</p>
-  </header>
-
-  <section id="onama">
-    <h2 data-bs="O nama" data-en="About us">O nama</h2>
-    <p id="about-text">
-      Mi smo tim stručnjaka sa višegodišnjim iskustvom u reparaciji, remontu i održavanju reduktora svih tipova i namjena.
-      Naša misija je produžiti vek trajanja vaših mašina, smanjiti zastoje u proizvodnji i uštedjeti vam vrijeme i novac.
-    </p>
-    <img src="bosna.jpg" alt="Bosna Niless" style="width:100%; margin-top:20px; border-radius:8px;">
-  </section>
-
-  <section id="usluge">
-    <h2 data-bs="Usluge" data-en="Services">Usluge</h2>
-    <p id="services-text">
-      1. Demontaža i dijagnostika<br>
-      2. Reverzni inženjering<br>
-      3. Popravka ili zamjena delova<br>
-      4. Toplotna obrada delova<br>
-      5. Montaža i podešavanje<br>
-      6. Testiranje u radu<br>
-      7. Podmazivanje i zaštita<br>
-      8. Dokumentacija i garancija<br>
-      9. Dodatne usluge (express servis, transport, savetovanje)
-    </p>
-  </section>
-
-  <section id="blogovi">
-    <h2 data-bs="Blog" data-en="Blog">Blog</h2>
-    <div class="blog-post">
-      <h3 data-bs="Kako prepoznati kvar na mjenjaču" data-en="How to Detect Gearbox Problems">Kako prepoznati kvar na mjenjaču</h3>
-      <p data-bs="Ako čujete neobične zvukove..." data-en="If you hear unusual noises or notice changes in power transmission, it's time for a professional diagnosis. Bosna Niless provides detailed inspection and solutions.">Ako čujete neobične zvukove...</p>
-    </div>
-    <div class="blog-post">
-      <h3 data-bs="Prednosti redovnog remonta" data-en="Benefits of Regular Gearbox Maintenance">Prednosti redovnog remonta</h3>
-      <p data-bs="Održavanje i remont smanjuju..." data-en="Regular maintenance and overhauls reduce costs and extend equipment lifespan. Learn why our clients prefer preventive service.">Održavanje i remont smanjuju...</p>
+  <!-- SEKCIJA: O NAMA -->
+  <section id="o-nama">
+    <div class="container">
+      <h2>O nama</h2>
+      <p>
+        Bosna Niless je specijalizirana firma za remont i servis industrijskih mjenjača, reduktora i ostalih mehaničkih sklopova. Sa više od 25 godina iskustva, garantujemo kvalitet, pouzdanost i efikasnost u svakom projektu.
+      </p>
+      <ul>
+        <li>Preko 500 uspješnih remonta</li>
+        <li>Certifikovani tehničari</li>
+        <li>Moderna oprema i precizna dijagnostika</li>
+      </ul>
     </div>
   </section>
 
-  <section id="kontakt" class="kontakt">
-    <h2 data-bs="Kontakt" data-en="Contact">Kontakt</h2>
-    <p id="contact-text">📍 Branilaca Bosne bb, Lukavac, BiH<br>📞 +387-62-635-887<br>✉ bosnaniless@bihnet.ba<br>🕒 Pon–Pet: 08:00–19:00</p>
+  <!-- SEKCIJA: GALERIJA -->
+  <section id="galerija">
+    <div class="container">
+      <h2>Galerija</h2>
+      <div class="gallery-grid">
+        <img src="slike/remont1.jpg" alt="Remont mjenjača - prije">
+        <img src="slike/remont2.jpg" alt="Remont mjenjača - poslije">
+        <img src="slike/radionica.jpg" alt="Radionica">
+        <img src="slike/oprema.jpg" alt="Specijalizovana oprema">
+        <!-- Dodaj još slika po potrebi -->
+      </div>
+    </div>
   </section>
 
-  <footer>© 2025 Bosna Niless – All rights reserved</footer>
-
-  <script>
-    function setLanguage(lang) {
-      document.querySelectorAll('[data-bs]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + lang);
-      });
-      document.documentElement.lang = lang;
-      if (lang === 'en') {
-        document.title = "Bosna Niless - Gearbox Repair & Overhaul";
-        document.getElementById('hero-text').textContent =
-          "Over 25 years of experience in gearbox repair and maintenance. We ensure reliability and performance for your operations.";
-        document.getElementById('about-text').textContent =
-          "We are a team of experts with years of experience in the repair and maintenance of all types of gearboxes and reducers. Our mission is to extend the life of your machines, minimize downtime, and save you time and money.";
-        document.getElementById('services-text').innerHTML =
-          "1. Disassembly and diagnostics<br>2. Reverse engineering<br>3. Repair or replacement of parts<br>4. Heat treatment<br>5. Assembly and adjustment<br>6. Performance testing<br>7. Lubrication and protection<br>8. Documentation and warranty<br>9. Additional services (express service, transport, consulting)";
-        document.getElementById('contact-text').innerHTML =
-          "📍 Branilaca Bosne bb, Lukavac, Bosnia and Herzegovina<br>📞 +387-62-635-887<br>✉ bosnaniless@bihnet.ba<br>🕒 Mon–Fri: 08:00–19:00";
-      } else {
-        location.reload();
-      }
-    }
-  </script>
+  <!-- SEKCIJA: RECENZIJE -->
+  <section id="recenzije">
+    <div class="container">
+      <h2>Recenzije klijenata</h2>
+      <div class="testimonial">
+        <p>"Bosna Niless nam je riješila problem sa mjenjačem u rekordnom roku. Profesionalna usluga i ljubazno osoblje!"</p>
+        <strong>– Elektroservis d.o.o.</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Pouzdani partner već 10 godina. Svaka preporuka!"</p>
+        <strong>– Metalinženjering Bihać</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Izuzetno znanje i oprema. Svaki kvar koji drugi nisu mogli riješiti, oni su otklonili."</p>
+        <strong>– Automatika Zenica</strong>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
