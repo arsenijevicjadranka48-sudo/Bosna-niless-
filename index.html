@@ -7,6 +7,7 @@
 <style>
 body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#222; scroll-behavior:smooth; }
 header { background:#333; color:white; padding:10px 20px; position:sticky; top:0; z-index:100; display:flex; justify-content:space-between; align-items:center; }
+header img { height:50px; margin-right:10px; vertical-align:middle; }
 nav a { color:white; margin:0 10px; text-decoration:none; font-weight:bold; }
 nav a:hover { text-decoration:underline; }
 .lang-btn { padding: 5px 10px; margin-left:5px; border:none; border-radius:5px; cursor:pointer; background:#555; color:white; }
@@ -31,6 +32,7 @@ button:hover { background:#555; }
 
 <header>
   <div>
+    <img src="https://i.imgur.com/3g7nmJC.png" alt="MCA2017 Logo" id="logo">
     <strong id="txt-company">MCA2017 — Mašinska obrada</strong>
   </div>
   <nav>
@@ -93,117 +95,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const TEXT = {
     sr: {
       company: "MCA2017 — Mašinska obrada",
-      heroTitle: "Precizne usluge mašinske obrade u Čačku",
       aboutText: "MCA2017 iz Čačka pruža profesionalne usluge mašinske obrade sa fokusom na preciznost, ponovljivost i kratak rok isporuke. Naš tim ima višegodišnje iskustvo i radi sa modernim CNC i EDM mašinama.",
       services: [
         ["Glodanje","CNC glodanje visoke preciznosti za prototipe i serije."],
         ["Struganje","Kvalitetni tokarski radovi i završna obrada."],
-        ["Brušenje","Ravno i obimno brušenje za visoku završnu obradu."],
-        ["Erodiranje žica","Precizno žično erodiranje za kompleksne oblike."],
-        ["Erodiranje elektroda","Izrada elektroda i EDM procesi."],
-        ["Lasersko sečenje","Lasersko sečenje lima visokog kvaliteta."]
-      ],
-      reviews: [
-        {name:"Marko", text:"Odlična preciznost i brza isporuka!", stars:5},
-        {name:"Ivana", text:"Preporučujem za složene svrdla i alate.", stars:5},
-        {name:"Milan", text:"Kvalitetna kontrola i profesionalan pristup.", stars:5},
-        {name:"Jelena", text:"Uvek tačno i po dogovoru.", stars:5},
-        {name:"Nenad", text:"Brza i efikasna usluga.", stars:5},
-        {name:"Ana", text:"Mašine vrhunskog kvaliteta.", stars:5},
-        {name:"Petar", text:"Sjajna komunikacija sa timom.", stars:5},
-        {name:"Sanja", text:"Topla preporuka za sve projekte.", stars:5},
-        {name:"Dragan", text:"Profesionalno i odgovorno.", stars:5},
-        {name:"Katarina", text:"Izuzetno zadovoljna saradnjom.", stars:5}
-      ]
-    },
-    en: {
-      company: "MCA2017 — Machining Services",
-      heroTitle: "Precision machining services in Čačak",
-      aboutText: "MCA2017 from Čačak provides professional machining services with focus on precision, repeatability, and fast delivery. Our team has years of experience and works with modern CNC and EDM machines.",
-      services: [
-        ["Milling","High-precision CNC milling for prototypes and production."],
-        ["Turning","Quality turning and finishing."],
-        ["Grinding","Surface and cylindrical grinding for fine finishes."],
-        ["Wire EDM","Precise wire EDM for complex shapes."],
-        ["Electrode EDM","Electrode manufacturing and EDM processes."],
-        ["Laser Cutting","High-quality laser sheet cutting."]
-      ],
-      reviews: [
-        {name:"Mark","text":"Excellent precision and fast delivery!", stars:5},
-        {name:"Jane","text":"Recommended for complex drills and tools.", stars:5},
-        {name:"Paul","text":"Professional approach and quality control.", stars:5},
-        {name:"Lucy","text":"Always on time and reliable.", stars:5},
-        {name:"John","text":"Efficient and precise work.", stars:5},
-        {name:"Emily","text":"High-quality machinery and results.", stars:5},
-        {name:"David","text":"Great communication with the team.", stars:5},
-        {name:"Sophia","text":"Strongly recommended for projects.", stars:5},
-        {name:"Michael","text":"Professional and accountable.", stars:5},
-        {name:"Laura","text":"Very satisfied with the collaboration.", stars:5}
-      ]
-    },
-    de: {
-      company: "MCA2017 — Maschinenbearbeitung",
-      heroTitle: "Präzise Bearbeitungsdienste in Čačak",
-      aboutText: "MCA2017 aus Čačak bietet professionelle Bearbeitungsdienste mit Fokus auf Präzision, Wiederholbarkeit und schnelle Lieferung. Unser Team hat jahrelange Erfahrung und arbeitet mit modernen CNC- und EDM-Maschinen.",
-      services: [
-        ["Fräsen","Hochpräzises CNC-Fräsen für Prototypen und Serien."],
-        ["Drehen","Qualität Dreharbeiten und Endbearbeitung."],
-        ["Schleifen","Flach- und Rundschleifen für feine Oberflächen."],
-        ["Drahterodieren","Präzises Drahterodieren für komplexe Formen."],
-        ["Elektroden EDM","Herstellung von Elektroden und EDM-Prozesse."],
-        ["Laserschneiden","Hochwertiges Laserschneiden von Blechen."]
-      ],
-      reviews: [
-        {name:"Markus","text":"Exzellente Präzision und schnelle Lieferung!", stars:5},
-        {name:"Julia","text":"Empfohlen für komplexe Werkzeuge.", stars:5},
-        {name:"Michael","text":"Professioneller Ansatz und Qualitätskontrolle.", stars:5},
-        {name:"Anna","text":"Immer pünktlich und zuverlässig.", stars:5},
-        {name:"Thomas","text":"Effiziente und präzise Arbeit.", stars:5},
-        {name:"Emilia","text":"Hochwertige Maschinen und Ergebnisse.", stars:5},
-        {name:"David","text":"Großartige Kommunikation mit dem Team.", stars:5},
-        {name:"Sophia","text":"Stark empfohlen für Projekte.", stars:5},
-        {name:"Johannes","text":"Professionell und verantwortungsbewusst.", stars:5},
-        {name:"Laura","text":"Sehr zufrieden mit der Zusammenarbeit.", stars:5}
-      ]
-    }
-  };
-
-  // set language
-  window.setLang = function(lang){
-    const t = TEXT[lang];
-    if(!t) return;
-    document.getElementById("txt-company").innerText = t.company;
-    document.getElementById("about-text").innerText = t.aboutText;
-
-    t.services.forEach((s,i)=>{
-      const card = document.getElementById("svc"+(i+1));
-      if(card){ card.querySelector("h3").innerText = s[0]; card.querySelector("p").innerText = s[1]; }
-    });
-
-    const reviewDiv = document.getElementById("review-cards");
-    reviewDiv.innerHTML = "";
-    t.reviews.forEach(r=>{
-      const div = document.createElement("div");
-      div.className="review card";
-      div.innerHTML=`<strong>${r.name}</strong><div class="stars">${'★'.repeat(r.stars)}</div><p>${r.text}</p>`;
-      reviewDiv.appendChild(div);
-    });
-
-    document.querySelectorAll(".lang-btn").forEach(btn=>btn.classList.remove("active"));
-    document.getElementById("lang-"+lang).classList.add("active");
-  }
-
-  // gallery
-  const galleryGrid = document.getElementById("gallery-grid");
-  const galleryImages = [
-    "https://picsum.photos/id/1011/600/400",
-    "https://picsum.photos/id/1015/600/400",
-    "https://picsum.photos/id/1016/600/400",
-    "https://picsum.photos/id/1021/600/400",
-    "https://picsum.photos/id/1025/600/400"
-  ];
-  galleryImages.forEach(src=>{
-    const img=document.createElement("img");
-    img.src=src;
-    img.onclick=()=>{ document.getElementById("lb-img").src=src; document.getElementById("lightbox").style.display="flex";}
-    galleryGrid.appendChild(img
+        ["Brušenje","Ravno i obimno brušenje z]()
