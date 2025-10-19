@@ -1,36 +1,12 @@
-<!DOCTYPE html>
-<html lang="sr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCA2017 – Mašinska obrada</title>
-<style>
-body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#222; scroll-behavior:smooth; }
-header { background:#333; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; }
-header img { height:50px; margin-right:10px; vertical-align:middle; }
-nav a { color:white; margin:0 10px; text-decoration:none; font-weight:bold; }
-nav a:hover { text-decoration:underline; }
-section { padding:50px 20px; text-align:center; }
-.card { background:#fff; padding:15px; margin:10px auto; max-width:600px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); text-align:left; }
-</style>
-</head>
-<body>
-
 <header>
+  ...
   <div>
-    <img src="https://i.imgur.com/3g7nmJC.png" alt="MCA2017 Logo" id="logo">
-    <strong>MCA2017 — Mašinska obrada</strong>
+    <button class="lang-btn active" onclick="setLang('sr')">SR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
   </div>
-  <nav>
-    <a href="#about">O nama</a>
-    <a href="#services">Usluge</a>
-    <a href="#gallery">Galerija</a>
-    <a href="#reviews">Recenzije</a>
-    <a href="#contact">Kontakt</a>
-  </nav>
 </header>
 
-<!-- Sekcije -->
 <section id="about"></section>
 <section id="services"></section>
 <section id="gallery"></section>
@@ -38,21 +14,31 @@ section { padding:50px 20px; text-align:center; }
 <section id="contact"></section>
 
 <script>
-// Funkcija za učitavanje sekcija iz zasebnih fajlova
-function loadSection(id, file) {
+let currentLang = 'sr';
+
+function loadSection(id, file){
   fetch(file)
-    .then(response => response.text())
-    .then(data => document.getElementById(id).innerHTML = data)
-    .catch(err => document.getElementById(id).innerHTML = `<p>Neuspešno učitavanje sekcije.</p>`);
+    .then(res=>res.text())
+    .then(data=>document.getElementById(id).innerHTML = data)
+    .catch(err=>document.getElementById(id).innerHTML='<p>Neuspešno učitavanje sekcije.</p>');
 }
 
-// Učitavanje svih sekcija
-loadSection('about', 'about.html');
-loadSection('services', 'services.html');
-loadSection('gallery', 'gallery.html');
-loadSection('reviews', 'reviews.html');
-loadSection('contact', 'contact.html');
-</script>
+function loadAllSections(lang){
+  loadSection('about', `about-${lang}.html`);
+  loadSection('services', `services-${lang}.html`);
+  loadSection('gallery', `gallery-${lang}.html`);
+  loadSection('reviews', `reviews-${lang}.html`);
+  loadSection('contact', `contact-${lang}.html`);
+}
 
-</body>
-</html>
+// Postavi jezik
+function setLang(lang){
+  currentLang = lang;
+  loadAllSections(lang);
+  document.querySelectorAll('.lang-btn').forEach(btn=>btn.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+}
+
+// Učitavanje početnog jezika
+loadAllSections(currentLang);
+</script>
