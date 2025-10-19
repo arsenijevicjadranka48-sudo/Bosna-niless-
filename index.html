@@ -1,68 +1,64 @@
-<!DOCTYPE html>
-<html lang="sr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCA2017 – Mašinska obrada</title>
-<style>
-body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#222; scroll-behavior:smooth; }
-header { background:#333; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; }
-header img { height:50px; margin-right:10px; vertical-align:middle; }
-nav a { color:white; margin:0 10px; text-decoration:none; font-weight:bold; }
-nav a:hover { text-decoration:underline; }
-.lang-btn { padding:5px 10px; margin-left:5px; border:none; border-radius:5px; cursor:pointer; background:#555; color:white; }
-.lang-btn.active { background:#ff9800; color:#fff; }
-section { padding:50px 20px; text-align:center; }
-h1,h2,h3 { margin-bottom:15px; }
-#gallery-grid img { width:200px; margin:5px; border-radius:8px; cursor:pointer; transition:transform .2s; }
-#gallery-grid img:hover { transform:scale(1.05); }
-#lightbox { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:none; justify-content:center; align-items:center; z-index:1000; }
-#lightbox img { max-width:90%; max-height:90%; border-radius:10px; }
-.card { background:#fff; padding:15px; margin:10px auto; max-width:600px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); text-align:left; }
-.review { margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid #eee; }
-.stars { color:gold; font-weight:bold; }
-form { max-width:400px; margin:20px auto; display:flex; flex-direction:column; gap:10px; }
-input, textarea, button { padding:10px; border-radius:5px; border:1px solid #ccc; font-size:16px; }
-button { background:#333; color:white; cursor:pointer; border:none; }
-button:hover { background:#555; }
-</style>
-</head>
-<body>
+<section id="reviews">
+  <h2>Recenzije</h2>
 
-<header>
-  <div>
-    <img src="https://i.imgur.com/3g7nmJC.png" alt="MCA2017 Logo" id="logo">
-    <strong id="txt-company">MCA2017 — Mašinska obrada</strong>
+  <div class="card review">
+    <p><strong>Marko P.</strong></p>
+    <p class="stars">★★★★★</p>
+    <p>Odlična firma! Vrlo precizna obrada i profesionalan pristup.</p>
   </div>
-  <nav>
-    <a href="#about" id="nav-about">O nama</a>
-    <a href="#services" id="nav-services">Usluge</a>
-    <a href="#gallery" id="nav-gallery">Galerija</a>
-    <a href="#reviews" id="nav-reviews">Recenzije</a>
-    <a href="#contact" id="nav-contact">Kontakt</a>
-  </nav>
-  <div>
-    <button id="lang-sr" class="lang-btn active" onclick="setLang('sr')">SR</button>
-    <button id="lang-en" class="lang-btn" onclick="setLang('en')">EN</button>
-    <button id="lang-de" class="lang-btn" onclick="setLang('de')">DE</button>
-  </div>
-</header>
 
-<section id="about">
-  <h2 id="about-title">O nama</h2>
-  <div class="card">
-    <p id="about-text"></p>
+  <div class="card review">
+    <p><strong>Jelena K.</strong></p>
+    <p class="stars">★★★★★</p>
+    <p>Brza i kvalitetna izrada delova po crtežu, toplo preporučujem.</p>
   </div>
+
+  <div class="card review">
+    <p><strong>Ivan S.</strong></p>
+    <p class="stars">★★★★☆</p>
+    <p>Odlično iskustvo, tim je vrlo stručan i pouzdan.</p>
+  </div>
+
+  <div class="card review">
+    <p><strong>Marija L.</strong></p>
+    <p class="stars">★★★★★</p>
+    <p>Kvalitetna obrada metala i odlična komunikacija sa firmom.</p>
+  </div>
+
+  <div class="card review">
+    <p><strong>Petar D.</strong></p>
+    <p class="stars">★★★★☆</p>
+    <p>Precizno i profesionalno, preporučujem za sve industrijske projekte.</p>
+  </div>
+
+  <div class="card review">
+    <p><strong>Sanja M.</strong></p>
+    <p class="stars">★★★★★</p>
+    <p>Vrlo zadovoljna saradnjom, rokovi su ispoštovani, a kvalitet odličan.</p>
+  </div>
+
+  <div class="card review">
+    <p><strong>Nikola T.</strong></p>
+    <p class="stars">★★★★★</p>
+    <p>Top profesionalci! Izrada po tehničkim crtežima bez greške.</p>
+  </div>
+
+  <div class="card review">
+    <p><strong>Ivana R.</strong></p>
+    <p class="stars">★★★★☆</p>
+    <p>Odlična tehnička podrška i konsultacije tokom procesa.</p>
+  </div>
+
+  <div class="card review">
+    <p><strong>Milan V.</strong></p>
+    <p class="stars">★★★★★</p>
+    <p>Firma sa iskustvom i kvalitetom, preporuka za svakog ko traži preciznu obradu.</p>
+  </div>
+
+  <div class="card review">
+    <p><strong>Ana K.</strong></p>
+    <p class="stars">★★★★★</p>
+    <p>Brza realizacija i profesionalan pristup, zadovoljna sam saradnjom.</p>
+  </div>
+
 </section>
-
-<section id="services">
-  <h2 id="services-title">Usluge</h2>
-  <div class="card" id="svc1"><h3></h3><p></p></div>
-  <div class="card" id="svc2"><h3></h3><p></p></div>
-  <div class="card" id="svc3"><h3></h3><p></p></div>
-  <div class="card" id="svc4"><h3></h3><p></p></div>
-  <div class="card" id="svc5"><h3></h3><p></p></div>
-  <div class="card" id="svc6"><h3></h3><p></p></div>
-</section>
-
-<s
