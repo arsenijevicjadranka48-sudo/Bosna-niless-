@@ -1,32 +1,381 @@
-import React, { useState } from "react";
-import { Menu, X, MapPin, Mail, Phone, Camera } from "lucide-react";
-import { motion } from "framer-motion";
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MCA2017 — Mašinska obrada (Čačak)</title>
+  <meta name="description" content="MCA2017 - Precizne usluge mašinske obrade: glodanje, struganje, brušenje, erodiranje, lasersko sečenje. Čačak, Srbija." />
 
-// Single-file React component for MCA2017 (Čačak) - Machine metalworking services
-// TailwindCSS is used for styling (no import required in this file).
-// To run: place this component in a React app with Tailwind configured and export as default.
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-const translations = {
-  sr: {
-    langLabel: "SR",
-    company: "MCA2017 — Mašinska obrada",
-    heroTitle: "Precizne usluge mašinske obrade u Čačku",
-    heroSub: "Glodanje, struganje, brušenje, erodiranje, lasersko sečenje i još više.",
-    servicesTitle: "Usluge",
-    services: [
-      "Glodanje",
-      "Struganje",
-      "Ravno brušenje",
-      "Obimno brušenje",
-      "Erodiranje žica",
-      "Erodiranje elektroda",
-      "Lasersko sečenje lima",
-    ],
-    aboutTitle: "O nama",
-    aboutText:
-      "MCA2017 iz Čačka pruža profesionalne usluge mašinske obrade sa fokusom na preciznost, ponovljivost i kratak rok isporuke. Naš tim ima višegodišnje iskustvo i radi sa modernim CNC i EDM mašinama.",
-    reviewsTitle: "Recenzije",
-    contactTitle: "Kontakt",
-    contactNote: "Pošaljite poruku ili nas pozovite — odgovorimo brzo.",
-    name: "Ime",
-    email: "Email",
+  <style>
+    :root{
+      --bg:#0f1724;           /* dark navy */
+      --card:#0b1220;
+      --muted:#9aa6b2;
+      --accent:#1f6feb;       /* blue accent */
+      --accent-2:#ff7a18;     /* secondary accent (sparingly) */
+      --glass: rgba(255,255,255,0.04);
+      --radius:12px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#071025 0%, #071a2b 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);backdrop-filter: blur(6px);box-shadow: 0 6px 18px rgba(2,6,23,0.6);}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;object-fit:contain;border-radius:10px;background:var(--glass);padding:6px}
+    .brand h1{margin:0;font-size:18px;font-weight:700;letter-spacing:0.2px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer;font-weight:600}
+    .btn:hover{border-color:rgba(255,255,255,0.12);color:white}
+    .cta{background:linear-gradient(90deg,var(--accent),#2b8dfd);padding:10px 14px;border-radius:10px;color:white;font-weight:700;border:0}
+    .langs{display:flex;gap:8px}
+    .lang-btn{background:transparent;border:0;color:var(--muted);cursor:pointer;padding:6px 8px;border-radius:8px}
+    .lang-btn.active{background:rgba(255,255,255,0.04);color:white}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+      align-items:center;
+      margin-top:28px;
+      padding:28px;
+      border-radius:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+    .hero-inner{display:flex;flex-direction:column;gap:10px}
+    .kicker{color:var(--accent);font-weight:700;font-size:13px}
+    .title{font-size:28px;font-weight:800;line-height:1.05}
+    .lead{color:var(--muted);max-width:70%}
+    .hero-actions{display:flex;gap:12px;margin-top:12px}
+
+    /* layout */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;box-shadow: 0 6px 18px rgba(2,6,23,0.6)}
+    .service-icon{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.02);display:inline-flex;align-items:center;justify-content:center;margin-right:12px}
+    .service-row{display:flex;align-items:center;gap:10px}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px;cursor:pointer;display:block;border:2px solid transparent}
+    .gallery img:hover{transform:scale(1.02);transition:transform .2s ease;border-color:rgba(255,255,255,0.04)}
+    @media (max-width:900px){
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+      .lead{max-width:100%}
+    }
+    @media (max-width:600px){
+      .hero{padding:18px}
+      .logo{width:48px;height:48px}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(4,8,15,0.86);z-index:9999;padding:20px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:95%;max-height:85%;border-radius:10px;box-shadow: 0 20px 60px rgba(2,6,23,0.75)}
+    .lb-close{position:absolute;top:22px;right:22px;background:rgba(0,0,0,0.4);border-radius:8px;padding:8px;cursor:pointer}
+    .lb-nav{position:absolute;top:50%;transform:translateY(-50%);display:flex;gap:14px;width:100%;justify-content:space-between;pointer-events:none}
+    .lb-nav button{pointer-events:auto;background:rgba(0,0,0,0.35);border:0;padding:10px;border-radius:10px;color:white;cursor:pointer}
+
+    /* Reviews */
+    .reviews{margin-top:20px;display:flex;gap:12px;align-items:center}
+    .review-card{min-height:92px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));display:flex;flex-direction:column;justify-content:center}
+    .stars{color:var(--accent-2);font-weight:800}
+    .review-controls{display:flex;gap:8px;align-items:center}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+    .contact iframe{width:100%;height:100%;border-radius:10px;border:0}
+    .contact-form input,.contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .contact-form label{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
+    footer{margin-top:28px;padding:20px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* small touches */
+    .muted{color:var(--muted)}
+    .pill{padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:999px;font-weight:600;color:var(--muted);font-size:13px}
+    .shadow-soft{box-shadow: 0 8px 30px rgba(2,6,23,0.6)}
+  </style>
+</head>
+<body>
+  <div class="container" id="page">
+
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <img src="mca.png" alt="MCA logo" class="logo" />
+        <div>
+          <h1 id="txt-company">MCA2017</h1>
+          <p id="txt-sub" class="muted">Precizna mašinska obrada — Čačak</p>
+        </div>
+      </div>
+
+      <nav>
+        <button class="btn" onclick="scrollToId('services')"><span id="nav-services">Usluge</span></button>
+        <button class="btn" onclick="scrollToId('about')"><span id="nav-about">O nama</span></button>
+        <button class="btn" onclick="scrollToId('gallery')"><span id="nav-gallery">Galerija</span></button>
+        <button class="btn" onclick="scrollToId('reviews')"><span id="nav-reviews">Recenzije</span></button>
+        <button class="cta" onclick="scrollToId('contact')"><span id="nav-contact">Kontaktirajte nas</span></button>
+
+        <div style="width:12px"></div>
+
+        <div class="langs" role="tablist" aria-label="Jezici">
+          <button class="lang-btn active" id="lang-sr" onclick="setLang('sr')">SR</button>
+          <button class="lang-btn" id="lang-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="lang-de" onclick="setLang('de')">DE</button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="kicker" id="hero-kicker">MCA2017 • Mašinska obrada</div>
+        <h2 class="title" id="hero-title">Precizne usluge mašinske obrade u Čačku</h2>
+        <p class="lead" id="hero-lead">Glodanje, struganje, ravno i obimno brušenje, erodiranje (žica i elektroda), lasersko sečenje lima — brza isporuka i kontrola kvaliteta.</p>
+
+        <div class="hero-actions">
+          <button class="cta" onclick="scrollToId('contact')"><svg width="16" height="16" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:6px"><path fill="currentColor" d="M21 8V7l-3 2-2-1-9 6 1 2 9-6 2 1 2-3z"/></svg><span id="cta-contact">Kontaktirajte nas</span></button>
+          <button class="btn" onclick="scrollToId('gallery')"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:6px"><path fill="currentColor" d="M5 3h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm0 2v12h14V5H5z"/></svg><span id="cta-gallery">Galerija</span></button>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <div class="pill" id="hero-location">Čačak, Srbija</div>
+          <div class="pill" id="hero-speed">Brza isporuka i serijska proizvodnja</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center">
+        <!-- Hero image box -->
+        <div style="width:320px;height:220px;border-radius:14px;overflow:hidden;box-shadow:0 14px 40px rgba(2,6,23,0.6)">
+          <img src="mca1.jpg" alt="Radionica" style="width:100%;height:100%;object-fit:cover;display:block" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" style="margin-top:26px">
+      <h3 style="margin:0 0 12px 0" id="services-title">Usluge</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="service-row">
+            <div class="service-icon">
+              <!-- icon -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#9fbefb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:700" id="svc-1">Glodanje</div>
+              <div class="muted" id="svc-1-desc">CNC glodanje visoke preciznosti za prototipe i serije.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="service-row">
+            <div class="service-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="#9fbefb" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:700" id="svc-2">Struganje</div>
+              <div class="muted" id="svc-2-desc">Kvalitetni tokarski radovi i završna obrada.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="service-row">
+            <div class="service-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 7h18" stroke="#9fbefb" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:700" id="svc-3">Brušenje</div>
+              <div class="muted" id="svc-3-desc">Ravno i obimno brušenje za visoku završnu obradu.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-top:12px">
+        <div class="card">
+          <div class="service-row">
+            <div class="service-icon"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16" stroke="#9fbefb" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div>
+              <div style="font-weight:700" id="svc-4">Erodiranje (žica)</div>
+              <div class="muted" id="svc-4-desc">Precizno žično erodiranje za kompleksne oblike.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="service-row">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 3l18 18" stroke="#9fbefb" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div>
+              <div style="font-weight:700" id="svc-5">Erodiranje (elektrode)</div>
+              <div class="muted" id="svc-5-desc">Izrada elektroda i EDM procesi.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="service-row">
+            <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#9fbefb" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div>
+              <div style="font-weight:700" id="svc-6">Lasersko sečenje</div>
+              <div class="muted" id="svc-6-desc">Lasersko sečenje lima visokog kvaliteta.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" style="margin-top:26px">
+      <h3 id="about-title">O nama</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px">
+        <div class="card" style="flex:1;min-width:260px">
+          <p id="about-text">MCA2017 iz Čačka pruža profesionalne usluge mašinske obrade sa fokusom na preciznost, ponovljivost i kratak rok isporuke. Naš tim ima višegodišnje iskustvo i radi sa modernim CNC i EDM mašinama.</p>
+          <ul style="margin-top:12px;color:var(--muted);padding-left:18px">
+            <li id="about-b1">Moderni CNC uređaji</li>
+            <li id="about-b2">Kontrola kvaliteta i merni alati</li>
+            <li id="about-b3">Fleksibilni rokovi i serijska proizvodnja</li>
+          </ul>
+        </div>
+        <div class="card" style="width:320px;min-width:240px">
+          <img src="mca2.jpg" alt="Mašina" style="width:100%;height:220px;object-fit:cover;border-radius:10px" />
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" style="margin-top:26px">
+      <h3 id="gallery-title">Galerija</h3>
+      <div class="gallery" id="gallery-grid">
+        <!-- images injected by JS -->
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+      <button class="lb-close" aria-label="zatvori" onclick="closeLightbox()">✕</button>
+      <div class="lb-nav">
+        <button onclick="lbPrev()" aria-label="prethodna">‹</button>
+        <button onclick="lbNext()" aria-label="sledeća">›</button>
+      </div>
+      <img id="lb-img" src="" alt="Pregled slike" />
+    </div>
+
+    <!-- REVIEWS -->
+    <section id="reviews" style="margin-top:26px">
+      <h3 id="reviews-title">Recenzije</h3>
+      <div style="display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap">
+        <div class="review-card" style="flex:1;min-width:220px" id="review-card">
+          <!-- injected -->
+        </div>
+        <div class="review-controls">
+          <button class="btn" onclick="reviewPrev()">‹</button>
+          <button class="btn" onclick="reviewNext()">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:26px">
+      <h3 id="contact-title">Kontaktirajte nas</h3>
+      <div class="contact">
+        <div class="card">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div><strong id="contact-company">MCA2017</strong></div>
+            <div class="muted" id="contact-address">Čačak, Srbija</div>
+            <div style="margin-top:6px"><strong>Email:</strong> <a id="contact-email" href="mailto:email@example.com" style="color:inherit">email@example.com</a></div>
+            <div><strong>Tel:</strong> <a id="contact-phone" href="tel:+381600000000" style="color:inherit">+381 60 000 0000</a></div>
+
+            <div style="margin-top:12px">
+              <p class="muted" id="contact-note">Pošaljite poruku ili nas pozovite — odgovorimo brzo.</p>
+            </div>
+
+            <div style="margin-top:12px">
+              <strong class="muted">Radno vreme</strong>
+              <div class="muted">Pon-Pet: 08:00 — 17:00</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card contact-form">
+          <form id="contactForm" onsubmit="handleContact(event)">
+            <label id="lbl-name">Ime</label>
+            <input type="text" name="name" required placeholder="" />
+            <label id="lbl-email">Email</label>
+            <input type="email" name="email" required placeholder="" />
+            <label id="lbl-message">Poruka</label>
+            <textarea name="message" rows="4" required placeholder=""></textarea>
+            <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+              <button class="cta" type="submit" id="btn-send">Pošalji</button>
+              <button type="button" class="btn" onclick="resetContact()">Obriši</button>
+            </div>
+          </form>
+        </div>
+
+        <iframe src="https://www.google.com/maps?q=Čačak+Serbia&output=embed" loading="lazy" title="Mapa - Čačak" style="grid-column:1 / -1; height:320px; margin-top:14px; border-radius:10px"></iframe>
+      </div>
+    </section>
+
+    <footer>
+      <div>© MCA2017 Čačak — Sva prava zadržana</div>
+    </footer>
+  </div>
+
+  <script>
+    // -----------------------
+    // Simple multi-language
+    // -----------------------
+    const TEXT = {
+      sr: {
+        company: "MCA2017 — Mašinska obrada",
+        sub: "Precizna mašinska obrada — Čačak",
+        heroKicker: "MCA2017 • Mašinska obrada",
+        heroTitle: "Precizne usluge mašinske obrade u Čačku",
+        heroLead: "Glodanje, struganje, ravno i obimno brušenje, erodiranje (žica i elektroda), lasersko sečenje lima — brza isporuka i kontrola kvaliteta.",
+        ctaContact: "Kontaktirajte nas",
+        ctaGallery: "Galerija",
+        services: ["Glodanje","Struganje","Ravno brušenje","Obimno brušenje","Erodiranje žica","Erodiranje elektroda","Lasersko sečenje lima"],
+        svcDesc: ["CNC glodanje visoke preciznosti za prototipe i serije.","Kvalitetni tokarski radovi i završna obrada.","Ravno i obimno brušenje za visoku završnu obradu.","Precizno žično erodiranje za kompleksne oblike.","Izrada elektroda i EDM procesi.","Lasersko sečenje lima visokog kvaliteta."],
+        aboutTitle: "O nama",
+        aboutText: "MCA2017 iz Čačka pruža profesionalne usluge mašinske obrade sa fokusom na preciznost, ponovljivost i kratak rok isporuke. Naš tim ima višegodišnje iskustvo i radi sa modernim CNC i EDM mašinama.",
+        reviews: [
+          {name:"Marko",text:"Odlična preciznost i brza isporuka!",stars:5},
+          {name:"Ivana",text:"Preporučujem za složene svrdla i alate.",stars:5},
+          {name:"Milan",text:"Kvalitetna kontrola i profesionalan pristup.",stars:5}
+        ],
+        contact: {company:"MCA2017", address:"Čačak, Srbija", email:"email@example.com", phone:"+381 60 000 0000", note:"Pošaljite poruku ili nas pozovite — odgovorimo brzo."},
+        labels: {name:"Ime",email:"Email",message:"Poruka",send:"Pošalji"}
+      },
+      en: {
+        company: "MCA2017 — Machining Services",
+        sub: "Precision metalworking — Čačak",
+        heroKicker: "MCA2017 • Machining",
+        heroTitle: "Precision metalworking services in Čačak",
+        heroLead: "Milling, turning, surface and cylindrical grinding, EDM (wire & electrodes), laser sheet cutting — fast turnaround and quality control.",
+        ctaContact: "Contact us",
+        ctaGallery: "Gallery",
+        services: ["Milling","Turning","Surface grinding","Cylindrical grinding","Wire EDM","EDM electrodes","Laser sheet cutting"],
+        svcDesc: ["High-precision CNC milling for prototypes and production.","Quality turning and finishing.","Surface and cylindrical grinding for fine finishes.","Precise wire EDM for complex shapes.","Electrode manufacturing and EDM processes.","High-quality laser sheet cutting."],
+        aboutTitle: "About",
+        aboutText: "MCA2017 from Čačak delivers professional machining services focused on precision, repeatability and fast turnaround. Our team works with modern CNC and EDM equipment.",
+        reviews: [
+          {name:"J
