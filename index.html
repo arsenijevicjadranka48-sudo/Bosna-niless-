@@ -1,47 +1,32 @@
-    <p>Naša misija je da obezbedimo vrhunski kvalitet, tačnost i pouzdanost u svakom segmentu rada.</p>
-</section>
+import React, { useState } from "react";
+import { Menu, X, MapPin, Mail, Phone, Camera } from "lucide-react";
+import { motion } from "framer-motion";
 
-<!-- Zašto odabrati nas -->
-<section id="zasto-mi">
-    <h2>Zašto odabrati nas?</h2>
-    <ul>
-        <li>✅ Više od 8 godina iskustva u industriji</li>
-        <li>✅ Precizna i pouzdana obrada metala</li>
-        <li>✅ Savremena CNC tehnologija</li>
-        <li>✅ Profesionalan i obučen tim</li>
-        <li>✅ Tačnost i poštovanje rokova</li>
-    </ul>
-</section>
+// Single-file React component for MCA2017 (Čačak) - Machine metalworking services
+// TailwindCSS is used for styling (no import required in this file).
+// To run: place this component in a React app with Tailwind configured and export as default.
 
-<!-- Galerija -->
-<section id="galerija">
-    <h2>Galerija</h2>
-    <div class="galerija">
-        <img src="slika1.jpg" alt="Mašinska obrada 1">
-        <img src="slika2.jpg" alt="Mašinska obrada 2">
-        <img src="slika3.jpg" alt="Radni prostor">
-        <img src="slika4.jpg" alt="Mašina u radu">
-    </div>
-</section>
-
-<!-- Recenzije klijenata -->
-<section id="recenzije">
-    <h2>Šta kažu naši klijenti</h2>
-    <div class="recenzije">
-        <p><strong>Aleksandar J.</strong>: "Sve pohvale za profesionalnost i tačnost. Preporuka!"</p>
-    </div>
-    <div class="recenzije">
-        <p><strong>Milena M.</strong>: "Kvalitet obrade je izvanredan. Komunikacija odlična."</p>
-    </div>
-    <div class="recenzije">
-        <p><strong>Marko P.</strong>: "Pouzdani, brzi i korektni. Vraćamo se sigurno!"</p>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer>
-    <p>&copy; 2025 MCA 2017 - Sva prava zadržana.</p>
-</footer>
-
-</body>
-</html>
+const translations = {
+  sr: {
+    langLabel: "SR",
+    company: "MCA2017 — Mašinska obrada",
+    heroTitle: "Precizne usluge mašinske obrade u Čačku",
+    heroSub: "Glodanje, struganje, brušenje, erodiranje, lasersko sečenje i još više.",
+    servicesTitle: "Usluge",
+    services: [
+      "Glodanje",
+      "Struganje",
+      "Ravno brušenje",
+      "Obimno brušenje",
+      "Erodiranje žica",
+      "Erodiranje elektroda",
+      "Lasersko sečenje lima",
+    ],
+    aboutTitle: "O nama",
+    aboutText:
+      "MCA2017 iz Čačka pruža profesionalne usluge mašinske obrade sa fokusom na preciznost, ponovljivost i kratak rok isporuke. Naš tim ima višegodišnje iskustvo i radi sa modernim CNC i EDM mašinama.",
+    reviewsTitle: "Recenzije",
+    contactTitle: "Kontakt",
+    contactNote: "Pošaljite poruku ili nas pozovite — odgovorimo brzo.",
+    name: "Ime",
+    email: "Email",
