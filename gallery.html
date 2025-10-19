@@ -1,0 +1,30 @@
+<h2>Galerija</h2>
+<div id="gallery-grid">
+  <img src="https://i.imgur.com/abc123.jpg" alt="Primer mašinske obrade 1">
+  <img src="https://i.imgur.com/def456.jpg" alt="Primer mašinske obrade 2">
+  <img src="https://i.imgur.com/ghi789.jpg" alt="Primer mašinske obrade 3">
+  <img src="https://i.imgur.com/jkl012.jpg" alt="Primer mašinske obrade 4">
+</div>
+
+<script>
+// Lightbox galerija
+document.querySelectorAll('#gallery-grid img').forEach(img=>{
+  img.onclick = ()=>{
+    let lightbox = document.getElementById('lightbox');
+    if(!lightbox){
+      lightbox = document.createElement('div');
+      lightbox.id = 'lightbox';
+      lightbox.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:flex; justify-content:center; align-items:center; z-index:1000;";
+      const lbImg = document.createElement('img');
+      lbImg.style.maxWidth='90%';
+      lbImg.style.maxHeight='90%';
+      lbImg.style.borderRadius='10px';
+      lightbox.appendChild(lbImg);
+      lightbox.onclick = ()=>{lightbox.style.display='none';};
+      document.body.appendChild(lightbox);
+    }
+    lightbox.style.display='flex';
+    lightbox.querySelector('img').src = img.src;
+  }
+});
+</script>
