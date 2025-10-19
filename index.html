@@ -10,21 +10,8 @@ header { background:#333; color:white; padding:10px 20px; display:flex; justify-
 header img { height:50px; margin-right:10px; vertical-align:middle; }
 nav a { color:white; margin:0 10px; text-decoration:none; font-weight:bold; }
 nav a:hover { text-decoration:underline; }
-.lang-btn { padding:5px 10px; margin-left:5px; border:none; border-radius:5px; cursor:pointer; background:#555; color:white; }
-.lang-btn.active { background:#ff9800; color:#fff; }
 section { padding:50px 20px; text-align:center; }
-h1,h2,h3 { margin-bottom:15px; }
-#gallery-grid img { width:200px; margin:5px; border-radius:8px; cursor:pointer; transition:transform .2s; }
-#gallery-grid img:hover { transform:scale(1.05); }
-#lightbox { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:none; justify-content:center; align-items:center; z-index:1000; }
-#lightbox img { max-width:90%; max-height:90%; border-radius:10px; }
 .card { background:#fff; padding:15px; margin:10px auto; max-width:600px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); text-align:left; }
-.review { margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid #eee; }
-.stars { color:gold; font-weight:bold; }
-form { max-width:400px; margin:20px auto; display:flex; flex-direction:column; gap:10px; }
-input, textarea, button { padding:10px; border-radius:5px; border:1px solid #ccc; font-size:16px; }
-button { background:#333; color:white; cursor:pointer; border:none; }
-button:hover { background:#555; }
 </style>
 </head>
 <body>
@@ -41,82 +28,30 @@ button:hover { background:#555; }
     <a href="#reviews">Recenzije</a>
     <a href="#contact">Kontakt</a>
   </nav>
-  <div>
-    <button class="lang-btn active">SR</button>
-    <button class="lang-btn">EN</button>
-    <button class="lang-btn">DE</button>
-  </div>
 </header>
 
-<!-- O nama -->
-<section id="about">
-  <h2>O nama</h2>
-  <div class="card">
-    <p>MCA2017 je firma specijalizovana za mašinsku obradu i preciznu izradu metalnih delova. 
-       Naša misija je pružiti visok kvalitet i pouzdane usluge industrijskim klijentima. 
-       Poslednjih 5 godina radili smo u cementnoj industriji na investicijama i održavanju opreme, 
-       gde smo stekli veliko iskustvo u optimizaciji proizvodnih procesa i tehničkoj preciznosti.</p>
-  </div>
-</section>
-
-<!-- Usluge -->
-<section id="services">
-  <h2>Usluge</h2>
-  <div class="card"><h3>Struganje i glodanje</h3><p>Precizna obrada metalnih komponenti na modernim strugovima i glodalicama.</p></div>
-  <div class="card"><h3>Brušenje i poliranje</h3><p>Visokokvalitetno brušenje i poliranje površina za savršenu završnu obradu.</p></div>
-  <div class="card"><h3>Popravka i remont reduktora</h3><p>Servis i kompletna reparacija industrijskih reduktora za dugotrajno funkcionisanje.</p></div>
-  <div class="card"><h3>Izrada po crtežu</h3><p>Izrada metalnih delova i komponenti po tehničkim crtežima i specifikacijama klijenata.</p></div>
-  <div class="card"><h3>Održavanje mašina</h3><p>Preventivno i korektivno održavanje mašina i opreme u industriji za optimalan radni učinak.</p></div>
-  <div class="card"><h3>Investicije i konsultacije</h3><p>Tehnička podrška i saveti za investicije u industrijsku opremu i optimizaciju proizvodnih procesa.</p></div>
-</section>
-
-<!-- Galerija -->
-<section id="gallery">
-  <h2>Galerija</h2>
-  <div id="gallery-grid">
-    <img src="https://i.imgur.com/abc123.jpg" alt="Primer mašinske obrade 1">
-    <img src="https://i.imgur.com/def456.jpg" alt="Primer mašinske obrade 2">
-    <img src="https://i.imgur.com/ghi789.jpg" alt="Primer mašinske obrade 3">
-    <img src="https://i.imgur.com/jkl012.jpg" alt="Primer mašinske obrade 4">
-  </div>
-</section>
-
-<!-- Recenzije -->
-<section id="reviews">
-  <h2>Recenzije</h2>
-  <div class="card review"><p><strong>Marko P.</strong></p><p class="stars">★★★★★</p><p>Odlična firma! Vrlo precizna obrada i profesionalan pristup.</p></div>
-  <div class="card review"><p><strong>Jelena K.</strong></p><p class="stars">★★★★★</p><p>Brza i kvalitetna izrada delova po crtežu, toplo preporučujem.</p></div>
-  <div class="card review"><p><strong>Ivan S.</strong></p><p class="stars">★★★★☆</p><p>Odlično iskustvo, tim je vrlo stručan i pouzdan.</p></div>
-  <div class="card review"><p><strong>Marija L.</strong></p><p class="stars">★★★★★</p><p>Kvalitetna obrada metala i odlična komunikacija sa firmom.</p></div>
-  <div class="card review"><p><strong>Petar D.</strong></p><p class="stars">★★★★☆</p><p>Precizno i profesionalno, preporučujem za sve industrijske projekte.</p></div>
-  <div class="card review"><p><strong>Sanja M.</strong></p><p class="stars">★★★★★</p><p>Vrlo zadovoljna saradnjom, rokovi su ispoštovani, a kvalitet odličan.</p></div>
-  <div class="card review"><p><strong>Nikola T.</strong></p><p class="stars">★★★★★</p><p>Top profesionalci! Izrada po tehničkim crtežima bez greške.</p></div>
-  <div class="card review"><p><strong>Ivana R.</strong></p><p class="stars">★★★★☆</p><p>Odlična tehnička podrška i konsultacije tokom procesa.</p></div>
-  <div class="card review"><p><strong>Milan V.</strong></p><p class="stars">★★★★★</p><p>Firma sa iskustvom i kvalitetom, preporuka za svakog ko traži preciznu obradu.</p></div>
-  <div class="card review"><p><strong>Ana K.</strong></p><p class="stars">★★★★★</p><p>Brza realizacija i profesionalan pristup, zadovoljna sam saradnjom.</p></div>
-</section>
-
-<!-- Kontakt -->
-<section id="contact">
-  <h2>Kontakt</h2>
-  <form>
-    <input type="text" placeholder="Ime" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Vaša poruka" rows="5" required></textarea>
-    <button type="submit">Pošalji</button>
-  </form>
-</section>
-
-<div id="lightbox" onclick="this.style.display='none'"><img src="" alt="Lightbox"></div>
+<!-- Sekcije -->
+<section id="about"></section>
+<section id="services"></section>
+<section id="gallery"></section>
+<section id="reviews"></section>
+<section id="contact"></section>
 
 <script>
-document.querySelectorAll('#gallery-grid img').forEach(img=>{
-  img.onclick = ()=>{
-    const lightbox = document.getElementById('lightbox');
-    lightbox.style.display = 'flex';
-    lightbox.querySelector('img').src = img.src;
-  }
-});
+// Funkcija za učitavanje sekcija iz zasebnih fajlova
+function loadSection(id, file) {
+  fetch(file)
+    .then(response => response.text())
+    .then(data => document.getElementById(id).innerHTML = data)
+    .catch(err => document.getElementById(id).innerHTML = `<p>Neuspešno učitavanje sekcije.</p>`);
+}
+
+// Učitavanje svih sekcija
+loadSection('about', 'about.html');
+loadSection('services', 'services.html');
+loadSection('gallery', 'gallery.html');
+loadSection('reviews', 'reviews.html');
+loadSection('contact', 'contact.html');
 </script>
 
 </body>
