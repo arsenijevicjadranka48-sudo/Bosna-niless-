@@ -147,6 +147,37 @@
             margin-bottom: 15px;
         }
 
+        /* Kontakt osoba */
+        .contact-person {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 30px auto 0 auto;
+        }
+
+        .contact-person img.profile {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #1e90ff;
+        }
+
+        .contact-person a {
+            font-size: 1.1em;
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        .contact-person a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -165,7 +196,7 @@
 
 <section id="about">
     <h2>O meni</h2>
-    <p>Zovem se Adis Halilović i nudim profesionalne usluge programiranja Arduino sistema i kompletnog projektovanja elektronskih i mehaničkih rješenja. Specijalizovan sam za industrijske i kućne projekte, uključujući automatizaciju, IoT rješenja i robotske sisteme. Moj cilj je da svaki projekt bude prilagođen klijentu i funkcionalan po svim standardima.</p>
+    <p>Zovem se Adis Halilović, inženjer mašinstva sa preko 10 godina iskustva u industriji. Nudim profesionalne usluge programiranja Arduino sistema i kompletnog projektovanja elektronskih i mehaničkih rješenja. Specijalizovan sam za industrijske i kućne projekte, uključujući automatizaciju, IoT rješenja i robotske sisteme. Moj cilj je da svaki projekt bude prilagođen klijentu i funkcionalan po svim standardima.</p>
 </section>
 
 <section id="services">
@@ -225,6 +256,16 @@
         <textarea name="message" rows="5" placeholder="Vaša poruka" required></textarea>
         <button type="submit">Pošalji</button>
     </form>
+
+    <div class="contact-person">
+        <img src="adis.jpg" alt="Adis Halilović" class="profile">
+        <div>
+            <strong>Kontakt osoba:</strong><br>
+            <a href="https://www.facebook.com/profile.php?id=61582704662054" target="_blank">
+                Pogledaj Facebook profil
+            </a>
+        </div>
+    </div>
 </section>
 
 <footer>
