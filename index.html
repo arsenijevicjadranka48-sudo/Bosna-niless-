@@ -17,6 +17,9 @@
         ul { margin-left: 20px; margin-bottom: 20px; }
         .project, .review { border: 1px solid #ddd; padding: 25px; margin-bottom: 20px; border-radius: 10px; background: #fafafa; }
         .project img { max-width: 100%; border-radius: 10px; margin-top: 15px; }
+        form input, form textarea { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; }
+        form button { background: #2c3e50; color: #fff; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        form button:hover { background: #34495e; }
         footer { background: #2c3e50; color: #fff; text-align: center; padding: 25px 0; }
     </style>
 </head>
@@ -32,6 +35,7 @@
     <a href="#usluge">Usluge</a>
     <a href="#projekti">Projekti</a>
     <a href="#recenzije">Recenzije</a>
+    <a href="#kontakt">Kontakt</a>
 </nav>
 
 <section id="onama">
@@ -67,19 +71,19 @@
         <h3>Automatizovani sistem navodnjavanja</h3>
         <img src="navodnjavanje.jpg" alt="Projekt navodnjavanje">
         <p>Ovaj projekt je razvijen za male i srednje plantaže. Sistem koristi senzore vlage tla, Arduino kontroler i precizne ventile za regulaciju vode. Cilj projekta je smanjiti potrošnju vode, povećati efikasnost zalijevanja i omogućiti automatsko upravljanje putem mobilne aplikacije. 
-        Korisnici mogu postaviti raspored zalijevanja, pratiti stanje tla u realnom vremenu i primati obavijesti o potrebama biljaka. Sistem je jednostavan za instalaciju i održavanje.</p>
+        Korisnici mogu postaviti raspored zalijevanja, pratiti stanje tla u realnom vremenu i primati obavijesti o potrebama biljaka. Sistem je jednostavan za instalaciju i održavanje. Implementacijom ovog sistema, klijenti su zabilježili značajno smanjenje potrošnje vode i povećanje prinosa biljaka.</p>
     </div>
 
     <div class="project">
         <h3>Industrijski trakasti elevator</h3>
         <img src="industrijski_elevator.jpg" alt="Projekt industrijski elevator">
         <p>Projekt modernizacije trakastog elevatora u industrijskom pogonu. Uređaj je opremljen senzorima opterećenja i sigurnosnim sistemima koji smanjuju rizik od kvarova i povećavaju sigurnost radnika. 
-        Sistem je povezan sa centralnim PLC kontrolerom, a podaci se mogu pratiti i analizirati za optimizaciju performansi. Cilj projekta je povećanje produktivnosti i minimiziranje zastoja u proizvodnji.</p>
+        Sistem je povezan sa centralnim PLC kontrolerom, a podaci se mogu pratiti i analizirati za optimizaciju performansi. Cilj projekta je povećanje produktivnosti i minimiziranje zastoja u proizvodnji. Implementacija je donijela bolju kontrolu nad opterećenjem i smanjila vrijeme zastoja za više od 20%.</p>
     </div>
 
     <div class="project">
         <h3>Automatizacija transportnih sistema</h3>
-        <p>Razvili smo rješenja za kontrolu transportnih linija u fabrici cementa i drugih industrija. Projekat uključuje integraciju senzora, motora i Arduino kontrolera kako bi se omogućila precizna kontrola brzine, smjera i opterećenja transportnog sistema. Sistem je skalabilan i prilagodljiv različitim proizvodnim potrebama.</p>
+        <p>Razvili smo rješenja za kontrolu transportnih linija u fabrici cementa i drugih industrija. Projekat uključuje integraciju senzora, motora i Arduino kontrolera kako bi se omogućila precizna kontrola brzine, smjera i opterećenja transportnog sistema. Sistem je skalabilan i prilagodljiv različitim proizvodnim potrebama. Uvođenjem ovog sistema, klijenti su dobili detaljan uvid u performanse linija i smanjili kvarove na opremi.</p>
     </div>
 </section>
 
@@ -97,6 +101,21 @@
     <div class="review">
         <p>"Izuzetno iskustvo saradnje. Tim je uvijek dostupan, spreman za savjet i rješenja za svaki problem. Profesionalnost na visokom nivou." – Klijent C</p>
     </div>
+</section>
+
+<section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Ako imate pitanja ili želite da razgovarate o projektu, slobodno nas kontaktirajte putem forme ispod. Odgovaramo brzo i detaljno na sve upite.</p>
+    
+    <form action="#" method="post">
+        <input type="text" name="ime" placeholder="Vaše ime" required>
+        <input type="email" name="email" placeholder="Vaša email adresa" required>
+        <input type="text" name="tema" placeholder="Tema poruke" required>
+        <textarea name="poruka" rows="6" placeholder="Vaša poruka" required></textarea>
+        <button type="submit">Pošalji</button>
+    </form>
+
+    <p>Alternativno, možete nas kontaktirati direktno na email: <strong>kontakt@nusrethalilovic.ba</strong> ili na telefon: <strong>+387 61 123 456</strong></p>
 </section>
 
 <footer>
