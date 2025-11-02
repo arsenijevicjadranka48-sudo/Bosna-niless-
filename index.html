@@ -34,276 +34,126 @@
     nav {
         display: flex;
         justify-content: center;
-        background-color: #333;
-        position: sticky;
-        top: 0;
-        z-index: 100;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     nav a {
-        color: white;
         padding: 15px 25px;
+        color: #333;
         text-decoration: none;
-        text-transform: uppercase;
-        transition: background 0.3s;
+        font-weight: bold;
     }
 
     nav a:hover {
-        background-color: #1e90ff;
+        background-color: #00bfff;
+        color: white;
     }
 
     section {
-        padding: 60px 20px;
-        max-width: 1200px;
-        margin: auto;
+        max-width: 1000px;
+        margin: 40px auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        padding: 30px;
     }
 
     h2 {
-        text-align: center;
-        margin-bottom: 40px;
-        position: relative;
-    }
-
-    h2::after {
-        content: '';
-        width: 60px;
-        height: 4px;
-        background-color: #1e90ff;
-        display: block;
-        margin: 10px auto 0 auto;
-        border-radius: 2px;
-    }
-
-    .services, .projects-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .services .card {
-        background-color: white;
-        border-radius: 12px;
-        padding: 25px;
-        width: 300px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .services .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-    }
-
-    .services h3 {
-        margin-top: 0;
         color: #1e90ff;
+        margin-bottom: 20px;
     }
 
-    /* Projekti Grid */
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+    .project {
+        margin-bottom: 30px;
     }
 
-    .project-card {
-        position: relative;
-        overflow: hidden;
-        border-radius: 12px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        background-color: white;
-        transform: translateY(50px);
-        opacity: 0;
-        transition: all 0.6s ease-in-out;
+    .project h3 {
+        margin-bottom: 10px;
+        color: #00bfff;
     }
 
-    .project-card.visible {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    .project-card img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        transition: transform 0.5s;
-    }
-
-    .project-card:hover img {
-        transform: scale(1.1);
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(30, 144, 255, 0.6);
-        opacity: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.3s;
-    }
-
-    .project-card:hover .overlay {
-        opacity: 1;
-    }
-
-    .overlay-text {
-        color: white;
-        font-size: 1.2em;
-        font-weight: bold;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .project-description {
+    .review {
+        background-color: #e8f6ff;
+        border-left: 4px solid #1e90ff;
         padding: 15px;
-    }
-
-    .contact-person {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        max-width: 400px;
-        margin: 30px auto 0 auto;
-    }
-
-    .contact-person img.profile {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-right: 20px;
-        border: 3px solid #1e90ff;
-    }
-
-    .contact-person a {
-        font-size: 1.1em;
-        color: #1e90ff;
-        text-decoration: none;
-    }
-
-    .contact-person a:hover {
-        text-decoration: underline;
-    }
-
-    input, textarea {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-    }
-
-    button {
-        background-color: #1e90ff;
-        color: white;
-        border: none;
-        padding: 15px 20px;
-        cursor: pointer;
-        border-radius: 6px;
-        font-size: 1em;
-        transition: background 0.3s;
-    }
-
-    button:hover {
-        background-color: #0b63c7;
+        margin-bottom: 20px;
+        border-radius: 5px;
     }
 
     footer {
-        background-color: #333;
+        background-color: #222;
         color: white;
         text-align: center;
-        padding: 20px 0;
-        margin-top: 50px;
+        padding: 20px;
+        margin-top: 40px;
     }
 
     @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(-20px);}
-        to {opacity: 1; transform: translateY(0);}
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>Adis Halilović - Arduino Projekti</h1>
-    <p>Programiranje i kompletno projektovanje Arduino i industrijskih sistema</p>
+    <h1>Arduino Projekti</h1>
+    <p>Adis Halilović – Inženjer mašinstva sa više od 10 godina iskustva u industriji i automaciji</p>
 </header>
 
 <nav>
-    <a href="#about">O meni</a>
-    <a href="#services">Usluge</a>
-    <a href="#projects">Projekti</a>
-    <a href="#contact">Kontakt</a>
+    <a href="#projekti">Projekti</a>
+    <a href="#recenzije">Recenzije</a>
+    <a href="#kontakt">Kontakt</a>
 </nav>
 
-<section id="about">
-    <h2>O meni</h2>
-    <p>Zovem se Adis Halilović, inženjer mašinstva sa preko 10 godina iskustva u industriji. Nudim profesionalne usluge programiranja Arduino sistema i kompletnog projektovanja elektronskih i mehaničkih rješenja. Specijalizovan sam za industrijske i kućne projekte, uključujući automatizaciju, IoT rješenja i robotske sisteme. Moj cilj je da svaki projekt bude prilagođen klijentu i funkcionalan po svim standardima.</p>
-</section>
+<section id="projekti">
+    <h2>Moji Arduino Projekti</h2>
 
-<section id="services">
-    <h2>Usluge</h2>
-    <div class="services">
-        <div class="card">
-            <h3>Programiranje Arduino</h3>
-            <p>Pisanje koda za različite Arduino projekte, uključujući senzore, motore, LED matrice i industrijske sisteme.</p>
-        </div>
-        <div class="card">
-            <h3>Projektovanje Kompletnog Sistema</h3>
-            <p>Dizajn električnih i mehaničkih komponenti, PCB layout, integracija senzora i aktuatora.</p>
-        </div>
-        <div class="card">
-            <h3>Automatizacija i IoT</h3>
-            <p>Pametni industrijski sistemi i IoT rješenja za monitoring, kontrolu i optimizaciju procesa.</p>
-        </div>
+    <div class="project">
+        <h3>Automatski sistem za ventilaciju</h3>
+        <p>Ovaj projekat koristi senzore temperature i vlažnosti zraka za automatsko upravljanje ventilatorima u industrijskim pogonima. Sustav je dizajniran da optimizira protok zraka i smanji potrošnju energije.</p>
+    </div>
+
+    <div class="project">
+        <h3>Kontrola trake transportera</h3>
+        <p>Projekt je razvijen za automatsko upravljanje brzine i smjera trakastog transportera pomoću senzora i elektromotora. Idealno za industrijska okruženja gdje je preciznost i sigurnost ključna.</p>
+    </div>
+
+    <div class="project">
+        <h3>Uređaj za detekciju gasova</h3>
+        <p>Arduino sistem s više senzora koji detektuje prisustvo metana, propana i ugljen monoksida. Projekt uključuje alarmne signale, LCD ekran i bežično slanje podataka.</p>
+    </div>
+
+    <div class="project">
+        <h3>Robotizovani sistem za pomjeranje objekata</h3>
+        <p>Napredni sistem koji koristi servo motore i ultrazvučne senzore za detekciju prepreka i precizno pomjeranje objekata u zadatim koordinatama.</p>
     </div>
 </section>
 
-<section id="projects">
-    <h2>Projekti</h2>
-    <div class="projects-grid">
-        <div class="project-card">
-            <img src="navodnjavanje.jpg" alt="Automatski Navodnjivač">
-            <div class="overlay"><div class="overlay-text">Automatski Navodnjivač</div></div>
-            <div class="project-description">Arduino projekt za automatsko navodnjavanje industrijskih i poljoprivrednih površina sa senzorima vlage tla.</div>
-        </div>
-        <div class="project-card">
-            <img src="robotska-ruka.jpg" alt="Robotska Ruka">
-            <div class="overlay"><div class="overlay-text">Robotska Ruka za Industriju</div></div>
-            <div class="project-description">Programirana robotska ruka za industrijske procese – pakovanje, montaža i precizna manipulacija dijelovima.</div>
-        </div>
-        <div class="project-card">
-            <img src="pametna-kuca.jpg" alt="Pametna Kuća">
-            <div class="overlay"><div class="overlay-text">Pametna Kuća i Industrijski Monitoring</div></div>
-            <div class="project-description">IoT sistem za kontrolu rasvjete, temperature, sigurnosnih sistema i industrijskog nadzora putem mobilne aplikacije.</div>
-        </div>
-        <div class="project-card">
-            <img src="automatizacija-masina.jpg" alt="Automatizacija Mašina">
-            <div class="overlay"><div class="overlay-text">Automatizacija Mašina</div></div>
-            <div class="project-description">Kompletno rješenje za automatizaciju proizvodnih linija i kontrolu mašina pomoću Arduino i PLC integracije.</div>
-        </div>
-        <div class="project-card">
-            <img src="pametni-skladisni-sistem.jpg" alt="Pametni Skladišni Sistem">
-            <div class="overlay"><div class="overlay-text">Pametni Skladišni Sistem</div></div>
-            <div class="project-description">Sistem za praćenje inventara, automatsko sortiranje i kontrolu skladišnih procesa u industriji.</div>
-        </div>
+<section id="recenzije">
+    <h2>Recenzije Klijenata</h2>
+    <div class="review">
+        <p><strong>Marko Petrović</strong>: “Adis je profesionalac! Projekt za kontrolu ventilacije radi besprijekorno. Komunikacija i tehnička podrška su bile iznad očekivanja.”</p>
+    </div>
+    <div class="review">
+        <p><strong>Ana Kovačević</strong>: “Sistem za detekciju gasova koji je razvio Adis spasio nam je mnogo vremena i povećao sigurnost u postrojenju.”</p>
+    </div>
+    <div class="review">
+        <p><strong>Industrijski centar Lukavac</strong>: “Izuzetno zadovoljni saradnjom. Projekti su završeni prije roka i sve funkcioniše stabilno.”</p>
     </div>
 </section>
 
-<section id="contact">
-    <h2>Kontakt</h2>
-    <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Vaše ime" required>
-        <input type="email" name="email" placeholder="Vaš email" required>
-        <textarea name="message" rows="5" placeholder="Vaša poruka" required></textarea>
-        <
+<section id="kontakt">
+    <h2>Kontaktirajte me</h2>
+    <p>Za više informacija, ponude ili saradnju na projektu, možete me kontaktirati putem e-maila:</p>
+    <p><strong>adis.halilovic@projekti.com</strong></p>
+</section>
+
+<footer>
+    <p>© 2025 Adis Halilović | Arduino Projekti i Industrijska Automatizacija</p>
+</footer>
+
+</body>
+</html>
