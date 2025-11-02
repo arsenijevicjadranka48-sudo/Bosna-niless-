@@ -1,102 +1,84 @@
-#include <WiFi.h>
-#include <WebServer.h>
-
-// Zamijeni sa svojim WiFi podacima
-const char* ssid = "TvojWiFi";
-const char* password = "TvojaLozinka";
-
-WebServer server(80);
-
-void handleRoot() {
-  String html = R"rawliteral(
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <title>Nusret Arduino Projekti</title>
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino i Projekti - Nusret Halilović</title>
     <style>
-      body { font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333; margin: 0; padding: 0; }
-      header { background-color: #4CAF50; color: white; padding: 20px; text-align: center; }
-      section { padding: 20px; margin: 20px; background-color: white; border-radius: 10px; box-shadow: 0px 0px 10px #aaa; }
-      h2 { color: #4CAF50; }
-      img { max-width: 100%; border-radius: 10px; }
-      .review { margin-bottom: 15px; padding: 10px; border-left: 5px solid #4CAF50; background: #e9f5ee; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        header { background: #333; color: #fff; padding: 20px 0; text-align: center; }
+        nav { background: #444; padding: 10px 0; text-align: center; }
+        nav a { color: #fff; margin: 0 15px; text-decoration: none; }
+        section { padding: 50px 20px; max-width: 1000px; margin: auto; }
+        h2 { color: #333; margin-bottom: 20px; }
+        .project, .review { border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 10px; }
+        .project img { max-width: 100%; border-radius: 10px; }
+        footer { background: #333; color: #fff; text-align: center; padding: 20px 0; }
     </style>
-  </head>
-  <body>
-    <header>
-      <h1>Nusret Halilović - Arduino Projekti i Usluge</h1>
-      <p>Inženjer mašinstva sa preko 10 godina iskustva u industriji</p>
-    </header>
-    
-    <section id="about">
-      <h2>O nama</h2>
-      <p>Mi smo tim entuzijasta za Arduino i elektroniku, posvećen stvaranju inovativnih rješenja. Naši projekti spajaju tehnologiju i praktične aplikacije, omogućujući vam da jednostavno automatizujete i kontrolišete vaše uređaje. Radimo sa preciznošću, pažnjom i strašću za detalje.</p>
-    </section>
-    
-    <section id="services">
-      <h2>Usluge</h2>
-      <p>Nudimo kompletno projektovanje i programiranje Arduino sistema:</p>
-      <ul>
-        <li>Izrada pametnih uređaja za dom i industriju</li>
-        <li>Programiranje senzora, aktuatora i kontrola motora</li>
-        <li>Izrada prototipova i IoT rješenja</li>
-        <li>Obuka i mentorstvo u Arduino programiranju</li>
-        <li>Tehnička podrška i optimizacija postojećih sistema</li>
-      </ul>
-    </section>
-    
-    <section id="projects">
-      <h2>Projekti</h2>
-      <p>Primjeri naših industrijskih i edukativnih projekata:</p>
-      <ul>
-        <li>Automatizacija proizvodnih linija sa Arduino kontrolom</li>
-        <li>Sistemi za navodnjavanje sa senzorima vlage</li>
-        <li>Robotske ruke i upravljanje motornim pogonima</li>
-        <li>Arduino bazirani monitoring sistema za kvalitetu zraka i vode</li>
-        <li>Mini pametne kuće i IoT uređaji za edukaciju</li>
-      </ul>
-      <img src="navodnjavanje.jpg" alt="Projekt Navodnjavanje">
-    </section>
-    
-    <section id="reviews">
-      <h2>Recenzije</h2>
-      <div class="review">
-        <p>"Nusret je napravio odličan Arduino sistem za našu firmu. Sve funkcioniše besprijekorno, a projekat je završen na vrijeme!" – Klijent A</p>
-      </div>
-      <div class="review">
-        <p>"Sjajan mentor i tehnička podrška. Naučio sam mnogo o Arduino programiranju!" – Student B</p>
-      </div>
-      <div class="review">
-        <p>"Projekt navodnjavanja sa senzorima vlage radi perfektno i uštedi nam puno vremena i resursa." – Farmer C</p>
-      </div>
-    </section>
-    
-  </body>
-  </html>
-  )rawliteral";
+</head>
+<body>
 
-  server.send(200, "text/html", html);
-}
+<header>
+    <h1>Nusret Halilović - Arduino i Industrijski Projekti</h1>
+</header>
 
-void setup() {
-  Serial.begin(115200);
-  WiFi.begin(ssid, password);
-  Serial.print("Povezivanje na WiFi");
-  
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  
-  Serial.println();
-  Serial.print("Povezano! IP adresa: ");
-  Serial.println(WiFi.localIP());
-  
-  server.on("/", handleRoot);
-  server.begin();
-  Serial.println("HTTP server pokrenut");
-}
+<nav>
+    <a href="#onama">O nama</a>
+    <a href="#usluge">Usluge</a>
+    <a href="#projekti">Projekti</a>
+    <a href="#recenzije">Recenzije</a>
+</nav>
 
-void loop() {
-  server.handleClient();
-}
+<section id="onama">
+    <h2>O nama</h2>
+    <p>Mi smo tim stručnjaka koji se bavi razvojem i programiranjem Arduino i industrijskih sistema. 
+    Naš fokus je na praktičnim i inovativnim rješenjima koja pomažu firmama i pojedincima da automatizuju procese i unaprijede proizvodnju. 
+    Vođa tima, Nusret Halilović, inženjer je mašinstva sa više od deset godina iskustva u cementnoj industriji i sektoru investicija.</p>
+</section>
+
+<section id="usluge">
+    <h2>Usluge</h2>
+    <p>Nudimo kompletne usluge u oblasti projektovanja i programiranja Arduino sistema, uključujući:</p>
+    <ul>
+        <li>Razvoj automatizovanih industrijskih uređaja i kontrolnih sistema</li>
+        <li>Programiranje i testiranje mikrokontrolera</li>
+        <li>Projektovanje elektro i mehaničkih dijelova za mašinske sisteme</li>
+        <li>Implementacija sistema za pametne kuće i IoT projekte</li>
+    </ul>
+</section>
+
+<section id="projekti">
+    <h2>Projekti</h2>
+    
+    <div class="project">
+        <h3>Navodnjavanje</h3>
+        <img src="navodnjavanje.jpg" alt="Projekt navodnjavanje">
+        <p>Projekt automatizovanog sistema navodnjavanja za male i srednje plantaže. 
+        Sistem koristi Arduino kontroler i senzore vlage tla kako bi optimizirao upotrebu vode i povećao efikasnost zalijevanja.</p>
+    </div>
+
+    <div class="project">
+        <h3>Industrijski elevator</h3>
+        <img src="industrijski_elevator.jpg" alt="Projekt industrijski elevator">
+        <p>Projekt modernizacije trakastog elevatora u industrijskim pogonima. Sistem omogućava precizno praćenje opterećenja i poboljšava sigurnost pri radu.</p>
+    </div>
+</section>
+
+<section id="recenzije">
+    <h2>Recenzije</h2>
+    
+    <div class="review">
+        <p>"Odličan tim, sve funkcioniše savršeno i precizno. Preporučujem za sve koji trebaju profesionalnu automatizaciju." – Klijent A</p>
+    </div>
+
+    <div class="review">
+        <p>"Nusret je pokazao izuzetno tehničko znanje i strpljenje tokom implementacije projekta. Svaka preporuka!" – Klijent B</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Nusret Halilović. Sva prava zadržana.</p>
+</footer>
+
+</body>
+</html>
