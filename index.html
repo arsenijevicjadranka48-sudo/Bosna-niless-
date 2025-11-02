@@ -68,9 +68,10 @@
         margin-bottom: 30px;
     }
 
-    .project h3 {
-        margin-bottom: 10px;
-        color: #00bfff;
+    .project img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-top: 10px;
     }
 
     .review {
@@ -99,26 +100,44 @@
 
 <header>
     <h1>Arduino Projekti</h1>
-    <p>Adis Halilović – Inženjer mašinstva sa više od 10 godina iskustva u industriji i automaciji</p>
+    <p>Adis Halilović – Inženjer mašinstva sa više od 10 godina iskustva u industriji i automatizaciji</p>
 </header>
 
 <nav>
+    <a href="#o-nama">O Nama</a>
+    <a href="#usluge">Usluge</a>
     <a href="#projekti">Projekti</a>
     <a href="#recenzije">Recenzije</a>
     <a href="#kontakt">Kontakt</a>
 </nav>
 
+<section id="o-nama">
+    <h2>O Nama</h2>
+    <p>Firma vodi Adis Halilović, inženjer mašinstva sa višegodišnjim iskustvom u industrijskim procesima i automatizaciji. Naša misija je pružiti kvalitetna rješenja za Arduino i industrijske projekte, kombinirajući preciznost, inovaciju i praktičnost.</p>
+</section>
+
+<section id="usluge">
+    <h2>Usluge</h2>
+    <ul>
+        <li>Projektovanje i programiranje Arduino sistema</li>
+        <li>Industrijska automatizacija i kontrola mašina</li>
+        <li>Senzorski sistemi i monitoring</li>
+        <li>Video nadzor i upravljanje procesima</li>
+        <li>Održavanje i optimizacija elektronskih sistema</li>
+    </ul>
+</section>
+
 <section id="projekti">
-    <h2>Moji Arduino Projekti</h2>
+    <h2>Moji Projekti</h2>
 
     <div class="project">
         <h3>Automatski sistem za ventilaciju</h3>
-        <p>Ovaj projekat koristi senzore temperature i vlažnosti zraka za automatsko upravljanje ventilatorima u industrijskim pogonima. Sustav je dizajniran da optimizira protok zraka i smanji potrošnju energije.</p>
+        <p>Ovaj projekat koristi senzore temperature i vlažnosti zraka za automatsko upravljanje ventilatorima u industrijskim pogonima. Sustav optimizira protok zraka i smanjuje potrošnju energije.</p>
     </div>
 
     <div class="project">
         <h3>Kontrola trake transportera</h3>
-        <p>Projekt je razvijen za automatsko upravljanje brzine i smjera trakastog transportera pomoću senzora i elektromotora. Idealno za industrijska okruženja gdje je preciznost i sigurnost ključna.</p>
+        <p>Projekt je razvijen za automatsko upravljanje brzine i smjera trakastog transportera pomoću senzora i elektromotora, što osigurava preciznost i sigurnost u industrijskim procesima.</p>
     </div>
 
     <div class="project">
@@ -127,8 +146,9 @@
     </div>
 
     <div class="project">
-        <h3>Robotizovani sistem za pomjeranje objekata</h3>
-        <p>Napredni sistem koji koristi servo motore i ultrazvučne senzore za detekciju prepreka i precizno pomjeranje objekata u zadatim koordinatama.</p>
+        <h3>Navodnjavanje i automatsko zalivanje</h3>
+        <p>Ovaj sistem koristi senzore vlage tla i Arduino za automatsko pokretanje pumpi za navodnjavanje, štedeći vodu i optimizujući rast biljaka.</p>
+        <img src="navodnjavanje.jpg" alt="Navodnjavanje sistem">
     </div>
 </section>
 
